@@ -6,7 +6,13 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 00:14:57 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/06 00:15:01 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/06 01:26:58 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
+int main() {
+    printf("Hello World!\n");
+    return 0;
+}

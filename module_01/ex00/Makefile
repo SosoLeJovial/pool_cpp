@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/06 00:24:58 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/10/06 01:29:45 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 NAME	= megaphone
 
 CC 		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=C++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 DFLAGS	= -MMD -MF $(@:.o=.d)
 
 ################################################################################
@@ -29,7 +29,6 @@ FILE_EXTENSION	= .cpp
 SRCS			= megaphone.cpp \
 
 OBJS_DIR		= .objs/
-INCLUDE_DIR		= includes/
 SRCS_PATH		= ./
 MAIN			= megaphone.cpp
 
@@ -53,7 +52,7 @@ $(NAME):	${OBJS} ${OBJ_MAIN}
 
 .objs/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)
 			mkdir -p $(OBJS_DIR)
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I$(INCLUDE_DIR)
+			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 clean:		
 			rm -rf 	$(OBJS_DIR)
