@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:03:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/09 02:42:37 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:06:09 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #include <iostream>
 #include <iomanip>
 #include <PhoneBook.hpp>
+#include <cstring>
+#include <stdlib.h>
 
-
-PhoneBook::PhoneBook() : max_user(0){};
+PhoneBook::PhoneBook() : _maxuser(0){};
 
 PhoneBook::PhoneBook(const PhoneBook &other)
 {
@@ -28,8 +29,8 @@ PhoneBook& PhoneBook::operator=(const PhoneBook &other)
 {
 	if (this != &other)
 	{
-		this->max_user = other.max_user;
-		for (size_t i = 0; i < other.max_user; i++)
+		this->_maxuser = other._maxuser;
+		for (size_t i = 0; i < other._maxuser; i++)
 		{
 			this->contacts[i] = other.contacts[i];
 		}
@@ -40,45 +41,86 @@ PhoneBook& PhoneBook::operator=(const PhoneBook &other)
 PhoneBook::~PhoneBook(){};
 
 // Setters
-void	PhoneBook::set_max_user(size_t nb)
+void	PhoneBook::set_maxuser(size_t nb)
 {
 	if (nb <= 8)
-		this->max_user = nb;
+		this->_maxuser = nb;
 }
+
 //getters
-size_t	PhoneBook::get_max_users()
+size_t	PhoneBook::get_maxuser()
 {
-	return (this->max_user);
+	return (this->_maxuser);
 }
 
 // Methods
 void	PhoneBook::add(const Contact &new_contact)
 {
-	if (max_user < 8)
+	size_t	maxuser;
+
+	maxuser = get_maxuser();
+	if (maxuser < 8)
 	{
-		contacts[max_user] = new_contact;
-		max_user++;
+		contacts[maxuser] = new_contact;
+		set_maxuser(++maxuser);
 	}
 	else
-	{
-		contacts[max_user] = new_contact;
-	}
+		contacts[_maxuser] = new_contact;
 };
 
-void	PhoneBook::search(std::string name)
+void	PhoneBook::search()
 {
-	(void)name;
 	PhoneBook::display_all();
 };
 
+std::string truncate(std::string str)
+{
+	std::string s;
+
+	if (str.length() < 9)
+		return (str);
+	s = str.substr(0, 9) + ".";
+	return (s);
+}
 void	PhoneBook::display_all()
 {
-	std::cout << "display all called" << std::endl;
-	for (size_t i = 0; i < max_user; i++)
+	int n;
+	std::string str;
+
+	std::cout << std::setw(10) << "Index" << "|";
+	std::cout << std::setw(10) << "First Name" << "|";
+	std::cout << std::setw(10) << "Last Name" << "|";
+	std::cout << std::setw(10) << "NickName" << std::endl;
+
+	for (size_t i = 0; i < _maxuser; i++)
 	{
 		if (!contacts[i].get_first_name().empty())
 		{
-			std::cout << contacts[i].get_first_name() << std::endl;
+			std::cout << std::setw(10) << i << "|";
+			std::cout << std::setw(10) << truncate(contacts[i].get_first_name()) << "|";
+			std::cout << std::setw(10) << truncate(contacts[i].get_last_name()) << "|";
+			std::cout << std::setw(10) << truncate(contacts[i].get_nickname()) << std::endl;
 		}
 	}
+	std::cout << "Enter an index:" << std::endl;
+	if (!(std::cin >> str))
+		return ;
+	n = atoi(str.c_str());
+	if (n > 8)
+	{
+		std::cout << "Invalid index Kappa lol" << std::endl;
+		return ;
+	}
+	std::cout << std::setw(10) << "First Name" << "|";
+	std::cout << std::setw(10) << "Last Name" << "|";
+	std::cout << std::setw(10) << "NickName" << "|";
+	std::cout << std::setw(10) << "Number" << "|";
+	std::cout << std::setw(10) << "Secret" << std::endl;
+	std::cout << std::setw(10) << contacts[n].get_first_name() << "|";
+	std::cout << std::setw(10) << contacts[n].get_last_name() << "|";
+	std::cout << std::setw(10) << contacts[n].get_nickname() << "|";
+	std::cout << std::setw(10) << contacts[n].get_phone_number() << "|";
+	std::cout << std::setw(10) << contacts[n].get_darkest_secret() << std::endl;
+	
 }
+

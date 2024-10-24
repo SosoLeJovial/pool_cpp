@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 17:13:19 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/09 02:45:25 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:54:21 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	main (void)
 	Contact		new_contact;
 
 	directory = PhoneBook();
+	std::cout << "Welcome to my awesome PhoneBook" << std::endl;
 	while (1)
 	{
-		if (input.empty())
-			std::cout << "Welcome to my awesome PhoneBook" << std::endl;
 		std::cout << "PhoneBook~ ";
 		if (!(std::cin >> input) || input == "EXIT")
 		{
@@ -40,7 +39,7 @@ int	main (void)
 			directory.add(new_contact);
 		}
 		if (input == "SEARCH")
-			directory.search(input);
+			directory.search();
 		if (!std::cin)
 		{
 			std::cout << "Bye!" << std::endl;

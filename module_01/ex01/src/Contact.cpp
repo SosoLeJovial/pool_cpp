@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:17:59 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/09 02:47:40 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:29:17 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,16 @@ Contact::~Contact(){};
 
 void	Contact::set_info()
 {
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
 	std::cout << "Entrez le prénom: ";
-	std::getline(std::cin, first_name);
+	std::cin >> this->first_name;
 	std::cout << "Entrez le nom de famille: ";
-	std::getline(std::cin, last_name);
+	std::cin >> this->last_name;
 	std::cout << "Entrez le surnom: ";
-	std::getline(std::cin, nickname);
+	std::cin >> this->nickname;
 	std::cout << "Entrez le numéro de téléphone: ";
-	std::getline(std::cin, phone_number);
+	std::cin >> this->phone_number;
 	std::cout << "Entrez le plus sombre secret: ";
-	std::getline(std::cin, darkest_secret);
+	std::cin >> this->darkest_secret;
 }
 
 std::string Contact::get_first_name() const {return (first_name);};

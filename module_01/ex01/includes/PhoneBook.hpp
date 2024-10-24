@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 17:33:45 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/09 02:39:21 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:48:51 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class PhoneBook
 {
 	private:
-		size_t	max_user;
+		size_t	_maxuser;
 		Contact	contacts[8];
 
 	public:
@@ -31,13 +31,13 @@ class PhoneBook
 		~PhoneBook();
 		
 		// Getters & Setters
-		size_t	get_max_users();
-		void	set_max_user(size_t nb);
+		size_t	get_maxuser();
+		void	set_maxuser(size_t nb);
 		
 		//Methods
-		void	add(const Contact &new_contact);
-		void	search(std::string name);
-		void	display_all();
+		void			add(const Contact &new_contact);
+		void			search();
+		void			display_all();
 };
 
 #endif
