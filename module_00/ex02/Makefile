@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/26 21:37:19 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/10/26 15:52:51 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= 
+NAME	= account
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -25,44 +25,46 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 ################################################################################
 
 FILE_EXTENSION	= .cpp
-SRCS			= 
 
-OBJS_DIR		= .objs/
-SRCS_PATH		= ./
+SRCS						= Account.cpp 
+
+OBJS_DIR					= .objs/
+SRCS_PATH					= src
+INCLUDE_PATH				= includes
+
+MAIN 						= tests.cpp
 
 ################################################################################
 #                                  Makefile  objs                              #
 ################################################################################
 
-SHELL := /bin/bash
-#SHELL := /usr/bin/env bash
+#SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
-OBJS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.o})
-OBJ_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.o})
-DEPS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.d})
-DEPS_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.d})
+OBJS				= $(addprefix ${OBJS_DIR}, ${SRCS:$(FILE_EXTENSION)=.o})
+OBJ_MAIN			= $(addprefix ${OBJS_DIR}, ${MAIN:$(FILE_EXTENSION)=.o})
+DEPS				= $(addprefix ${OBJS_DIR}, ${SRCS:$(FILE_EXTENSION)=.d})
+DEPS_MAIN			= $(addprefix ${OBJS_DIR}, ${MAIN:$(FILE_EXTENSION)=.d})
 
 all:		$(NAME)
 
 -include $(DEPS) $(DEPS_MAIN)
 
 $(NAME):	${OBJS} ${OBJ_MAIN}
-			$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
+		$(CC) $(CFLAGS) -I${INCLUDE_PATH} -o $@ ${OBJS} ${OBJ_MAIN}
 
-.objs/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)
+${OBJS_DIR}%.o: 	${SRCS_PATH}/%.cpp
 			mkdir -p $(OBJS_DIR)
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I$(INCLUDE_PATH)
 
 clean:		
 			rm -rf 	$(OBJS_DIR)
 
 fclean:		clean
-			@rm -f $(NAME)
+			rm -f $(NAME)
 
-re:         
-			make fclean
-			make all
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re
 
 ################################################################################

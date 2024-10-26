@@ -6,15 +6,13 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 00:14:57 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/06 19:11:54 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/26 21:29:43 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <iostream>
 #include <string>
-#include <Phonebook.hpp>
-#include <Contact.hpp>
 
 int main(int ac, char **argv) 
 {
