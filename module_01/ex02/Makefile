@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/09 02:37:17 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/10/26 15:52:51 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 
 FILE_EXTENSION	= .cpp
 
-SRCS						= Account.cpp
+SRCS						= Account.cpp 
 
-OBJS_DIR				= .objs/
-SRCS_PATH				= src
-INCLUDE_PATH		= includes
+OBJS_DIR					= .objs/
+SRCS_PATH					= src
+INCLUDE_PATH				= includes
 
 MAIN 						= tests.cpp
 

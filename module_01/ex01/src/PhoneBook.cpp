@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:03:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/24 20:06:09 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/25 17:20:16 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	PhoneBook::add(const Contact &new_contact)
 		set_maxuser(++maxuser);
 	}
 	else
-		contacts[_maxuser] = new_contact;
+		contacts[0] = new_contact;
 };
 
 void	PhoneBook::search()
