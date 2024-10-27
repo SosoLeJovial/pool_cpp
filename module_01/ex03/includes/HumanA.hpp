@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:32:36 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/27 22:42:20 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/28 00:32:39 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 class HumanA
 {
 	private:
-		/* data */
+		std::string	_name;
+		Weapon		_weapon;
 	public:
-		HumanA(/* args */);
+		HumanA();
+		HumanA(const std::string name, Weapon type);
 		~HumanA();
 		void	setWeapon(Weapon the_weapon);
 		void	attack();
-
 };
 
 
