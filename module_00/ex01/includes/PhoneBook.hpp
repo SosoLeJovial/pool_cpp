@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 17:33:45 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/24 19:48:51 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:18:53 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class PhoneBook
 {
 	private:
 		size_t	_maxuser;
+		size_t	_oldest;
 		Contact	contacts[8];
 
 	public:

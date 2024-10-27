@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 00:15:13 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/27 18:56:33 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/27 20:30:01 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ public:
 	Zombie(const std::string name);
 	~Zombie();
 	void announce();
+	void setName(const std::string name);
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 
 // ************************************************************************** //
 #endif

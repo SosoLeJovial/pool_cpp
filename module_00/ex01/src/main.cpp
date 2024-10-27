@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 17:13:19 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/24 19:54:21 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/27 16:53:57 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int	main (void)
 	while (1)
 	{
 		std::cout << "PhoneBook~ ";
-		if (!(std::cin >> input) || input == "EXIT")
+		if (!std::getline(std::cin, input) || input == "EXIT")
 		{
 			std::cout << std::endl << "Bye!" << std::endl;
 			break ;
 		}
+		if (input.empty())
+			continue ;
 		if (input == "ADD")
 		{
 			new_contact = Contact();

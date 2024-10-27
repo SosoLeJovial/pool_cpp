@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:03:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/25 17:20:16 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:22:19 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <cstring>
 #include <stdlib.h>
 
-PhoneBook::PhoneBook() : _maxuser(0){};
+PhoneBook::PhoneBook() : _maxuser(0), _oldest(0){};
 
 PhoneBook::PhoneBook(const PhoneBook &other)
 {
@@ -65,7 +65,12 @@ void	PhoneBook::add(const Contact &new_contact)
 		set_maxuser(++maxuser);
 	}
 	else
-		contacts[0] = new_contact;
+	{
+		if (_oldest == 7)
+			_oldest = 0;
+		contacts[_oldest] = new_contact;
+		_oldest++;
+	}
 };
 
 void	PhoneBook::search()

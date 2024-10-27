@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 18:50:22 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/27 18:58:03 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/10/27 20:32:39 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/10/27 20:35:52 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// It creates a zombie, name it, and the zombie announces itself.
-void randomChump( std::string name )
+int	main()
 {
-	Zombie	randomChump(name);
+	Zombie	*horde;
+	
+
+	horde = zombieHorde(3, "random");
+	delete[] horde;
+	return 0;
 }

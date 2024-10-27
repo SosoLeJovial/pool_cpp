@@ -1,6 +1,5 @@
 {
 	"files.associations": {
-		"ostream": "cpp",
 		"array": "cpp",
 		"atomic": "cpp",
 		"bit": "cpp",
@@ -16,6 +15,7 @@
 		"cstdint": "cpp",
 		"cstdio": "cpp",
 		"cstdlib": "cpp",
+		"cstring": "cpp",
 		"ctime": "cpp",
 		"cwchar": "cpp",
 		"cwctype": "cpp",
@@ -45,17 +45,13 @@
 		"limits": "cpp",
 		"new": "cpp",
 		"numbers": "cpp",
+		"ostream": "cpp",
 		"ranges": "cpp",
 		"span": "cpp",
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"cinttypes": "cpp",
-		"typeinfo": "cpp",
-		"cstring": "cpp",
-		"charconv": "cpp",
-		"format": "cpp",
-		"text_encoding": "cpp",
-		"variant": "cpp"
+		"typeinfo": "cpp"
 	}
 }

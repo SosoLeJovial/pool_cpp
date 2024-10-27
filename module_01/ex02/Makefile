@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/26 21:37:19 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/10/27 21:32:29 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= 
+NAME	= hi_this_is_brain
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -25,10 +25,9 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 ################################################################################
 
 FILE_EXTENSION	= .cpp
-SRCS			= 
 
 OBJS_DIR		= .objs/
-SRCS_PATH		= ./
+MAIN			= main.cpp
 
 ################################################################################
 #                                  Makefile  objs                              #
@@ -37,21 +36,19 @@ SRCS_PATH		= ./
 SHELL := /bin/bash
 #SHELL := /usr/bin/env bash
 
-OBJS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.o})
-OBJ_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.o})
-DEPS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.d})
-DEPS_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.d})
+OBJ_MAIN			= ${OBJS_DIR}${MAIN:${FILE_EXTENSION}=.o}
+DEPS_MAIN			= $(OBJ_MAIN:.o=.d)
 
 all:		$(NAME)
 
--include $(DEPS) $(DEPS_MAIN)
+-include $(DEPS_MAIN)
 
-$(NAME):	${OBJS} ${OBJ_MAIN}
-			$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
+$(NAME):	${OBJ_MAIN}
+			$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJ_MAIN}
 
-.objs/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)
-			mkdir -p $(OBJS_DIR)
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+${OBJS_DIR}%.o: 	./%$(FILE_EXTENSION)
+		mkdir -p $(OBJS_DIR)
+		$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 clean:		
 			rm -rf 	$(OBJS_DIR)
@@ -59,9 +56,7 @@ clean:
 fclean:		clean
 			@rm -f $(NAME)
 
-re:         
-			make fclean
-			make all
+re:         fclean all
 
 .PHONY:		all clean fclean re
 

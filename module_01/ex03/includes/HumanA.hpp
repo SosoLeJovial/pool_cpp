@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 18:50:22 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/27 18:58:03 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/10/27 22:32:36 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/10/27 22:42:20 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-// It creates a zombie, name it, and the zombie announces itself.
-void randomChump( std::string name )
+#include "Weapon.hpp"
+
+class HumanA
 {
-	Zombie	randomChump(name);
-}
+	private:
+		/* data */
+	public:
+		HumanA(/* args */);
+		~HumanA();
+		void	setWeapon(Weapon the_weapon);
+		void	attack();
+
+};
+
+
+#endif
