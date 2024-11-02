@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:31:39 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/28 00:33:07 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:49:56 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 HumanA::HumanA(){};
 HumanA::~HumanA(){};
 
-HumanA::HumanA(const std::string name, Weapon type)
+HumanA::HumanA(const std::string name, Weapon& type)
 {
 	this->_name = name;
 	this->_weapon = type;
