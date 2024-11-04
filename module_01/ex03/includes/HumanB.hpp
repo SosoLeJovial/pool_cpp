@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:32:15 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/29 13:42:12 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/05 00:30:31 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class HumanB
 		~HumanB();
 		void	setWeapon(Weapon& the_weapon);
 		void	attack();
-
 };
 
 

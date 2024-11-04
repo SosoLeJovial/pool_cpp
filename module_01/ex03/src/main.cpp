@@ -6,14 +6,13 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:29:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/27 23:59:27 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/05 00:30:59 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 #include "Weapon.hpp"
-#include <iostream>
 
 int main()
 {

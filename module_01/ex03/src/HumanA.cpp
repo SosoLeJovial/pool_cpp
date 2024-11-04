@@ -6,26 +6,15 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:31:39 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/10/29 12:49:56 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/04 23:33:05 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(){};
 HumanA::~HumanA(){};
 
-HumanA::HumanA(const std::string name, Weapon& type)
-{
-	this->_name = name;
-	this->_weapon = type;
-}
-
-
-void	HumanA::setWeapon(Weapon the_weapon)
-{
-	this->_weapon = the_weapon;
-}
+HumanA::HumanA(const std::string name, Weapon& the_weapon) : _name(name), _weapon(the_weapon){};
 
 void	HumanA::attack()
 {

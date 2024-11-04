@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/27 21:32:29 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/11/04 22:56:07 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ MAIN			= main.cpp
 #                                  Makefile  objs                              #
 ################################################################################
 
-SHELL := /bin/bash
-#SHELL := /usr/bin/env bash
+#SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 OBJ_MAIN			= ${OBJS_DIR}${MAIN:${FILE_EXTENSION}=.o}
 DEPS_MAIN			= $(OBJ_MAIN:.o=.d)
