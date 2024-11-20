@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/26 21:37:19 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/11/19 16:48:18 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= 
+NAME	= Harl 
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -25,17 +25,20 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 ################################################################################
 
 FILE_EXTENSION	= .cpp
-SRCS			= 
+SRCS			= Harl.cpp
 
 OBJS_DIR		= .objs/
-SRCS_PATH		= ./
+SRCS_PATH		= src
+INCLUDE_PATH	= includes
+
+MAIN			= main.cpp
 
 ################################################################################
 #                                  Makefile  objs                              #
 ################################################################################
 
-SHELL := /bin/bash
-#SHELL := /usr/bin/env bash
+#SHELL := /bin/bash
+SHELL := /usr/bin/env bash
 
 OBJS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.o})
 OBJ_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.o})
