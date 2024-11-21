@@ -5,18 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 20:32:39 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/21 23:12:35 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/11/21 21:37:07 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/11/21 22:33:27 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-int	main()
+int main()
 {
-	Zombie	*horde;
-	
-	horde = zombieHorde(3, "random");
-	delete[] horde;
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	std::cout << "Hello World!" << std::endl;
 	return 0;
 }
