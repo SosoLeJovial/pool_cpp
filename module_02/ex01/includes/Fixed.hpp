@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:38 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/22 00:04:08 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/22 20:05:58 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ public:
 	Fixed &operator=(const Fixed &copy);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
-	float toFloat(void) const;
-	int toInt(void) const;
+	// float toFloat(void) const;
+	// int toInt(void) const;
 };
+	std::ostream &operator<<(std::ostream &o, const Fixed &copy);
 
 #endif
