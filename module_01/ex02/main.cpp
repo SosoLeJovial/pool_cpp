@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:14:48 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/04 22:56:50 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/26 22:06:08 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	main()
 
 	std::cout << "Adress: " << std::endl;
 	std::cout << "Adress of str: " << &str << std::endl;
-	std::cout << "Adress of stringPTR:" << stringPTR << std::endl;
-	std::cout << "Adress of stringREF:" << &stringREF << std::endl << std::endl;
+	std::cout << "Adress of stringPTR: " << stringPTR << std::endl;
+	std::cout << "Adress of stringREF: " << &stringREF << std::endl << std::endl;
 	std::cout << "Value: " << std::endl;
 	std::cout << "Value of str: " << str << std::endl;
-	std::cout << "Value of stringPTR:" << *stringPTR << std::endl;
-	std::cout << "Value of stringREF:" << stringREF << std::endl;
+	std::cout << "Value of stringPTR: " << *stringPTR << std::endl;
+	std::cout << "Value of stringREF: " << stringREF << std::endl;
 	return (0);
 }

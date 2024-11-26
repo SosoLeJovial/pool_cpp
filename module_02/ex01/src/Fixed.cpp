@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/22 21:09:34 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/24 17:57:31 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,30 @@ Fixed::Fixed() : _value(0)
 
 Fixed::Fixed(int value)
 {
+	this->setRawBits(value << _fractionalBits);
 	std::cout << "Int constructor called" << std::endl;
-	_value = value << 8;
 }
 
 Fixed::Fixed(float value)
 {
-	std::cout << value << std::endl;
-	this->_value = roundf(value);
-	std::cout << _value << std::endl;
-	this->setRawBits(_value << 8);
-	std::cout << _fractionalBits << std::endl;
+	this->_value = roundf(value * (1 << _fractionalBits));
 	std::cout << "Float constructor called" << std::endl;
 }
 
-// int Fixed::toInt(float value) const
-// {
-// 	return 1;
-// }
+int Fixed::toInt(void) const
+{
+	return _value >> _fractionalBits;
+}
 
-// int Fixed::toFloat(int value) const
-// {
-	
-// }
+float Fixed::toFloat() const
+{
+	return static_cast<float>(_value) / (1 << _fractionalBits);
+}
 
 // Deconstructor
 Fixed::~Fixed()
 {
-	std::cout << "Deconstructor  called" << std::endl;
+	std::cout << "Deconstructor called" << std::endl;
 }
 
 // Copy Constructor
@@ -63,27 +59,22 @@ Fixed& Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &copy)
-	{
-		this->_value = copy._value;
 		this->setRawBits(copy.getRawBits());
-	}
 	return *this;
 }
 
 std::ostream& operator<<(std::ostream &o, const Fixed &copy)
 {
-	o << copy.getRawBits();
+	o << copy.toFloat();
 	return o;
 }
 
-
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member funciton called" << std::endl;
 	return this->_value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->_fractionalBits << raw;
+	this->_value = raw;
 }

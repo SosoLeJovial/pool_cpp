@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 00:33:08 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/19 15:11:08 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/26 23:44:14 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ bool isValidString(const std::string str)
 	return str.find_first_not_of("\n\t\r") != std::string::npos;
 }
 
-bool	open_file(std::fstream& file, std::string filename)
+bool open_file(std::fstream &file, std::string filename)
 {
-	
+
 	file.open(filename.c_str(), std::fstream::in);
 	if (!file.is_open())
 		return (false);
@@ -30,15 +30,15 @@ bool	open_file(std::fstream& file, std::string filename)
 
 std::string replace(std::string s, std::string r, std::string line)
 {
-	if (r.empty() || line.empty())
+	if (s.empty() || r.empty() || line.empty())
 		return (line);
-	size_t pos = line.find_first_of(r);
+	size_t pos = line.find(s);
 
 	while (pos != std::string::npos)
 	{
-		line.erase(pos, r.length());
-		line.insert(pos, s);
-		pos = line.find(r, pos + s.length());	
+		line.erase(pos, s.length());
+		line.insert(pos, r);
+		pos = line.find(s, pos + r.length());
 	}
 	return (line);
 }
