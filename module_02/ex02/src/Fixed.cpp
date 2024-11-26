@@ -6,29 +6,24 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/24 17:57:31 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/27 00:11:20 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-// Default Constructor 
-Fixed::Fixed() : _value(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+// Default Constructor
+Fixed::Fixed() : _value(0) {}
 
 Fixed::Fixed(int value)
 {
 	this->setRawBits(value << _fractionalBits);
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float value)
 {
 	this->_value = roundf(value * (1 << _fractionalBits));
-	std::cout << "Float constructor called" << std::endl;
 }
 
 int Fixed::toInt(void) const
@@ -42,28 +37,30 @@ float Fixed::toFloat() const
 }
 
 // Deconstructor
-Fixed::~Fixed()
-{
-	std::cout << "Deconstructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
 // Copy Constructor
 Fixed::Fixed(const Fixed &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 // Copy assignement operator
-Fixed& Fixed::operator=(const Fixed &copy)
+Fixed &Fixed::operator=(const Fixed &copy)
 {
-	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &copy)
 		this->setRawBits(copy.getRawBits());
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream &o, const Fixed &copy)
+Fixed &Fixed::operator*(const Fixed &copy)
+{
+	float tmp = copy.toFloat() * this->getRawBits();
+	this->setRawBits(tmp);
+	return *this;
+}
+
+std::ostream &operator<<(std::ostream &o, const Fixed &copy)
 {
 	o << copy.toFloat();
 	return o;
