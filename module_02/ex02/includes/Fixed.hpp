@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:38 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/27 00:55:47 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/27 02:27:50 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,18 @@ public:
 	Fixed &operator-(const Fixed &copy);
 	Fixed &operator=(const Fixed &copy);
 
-	bool &operator>(const Fixed &copy);
-	bool &operator>=(const Fixed &copy);
-	bool &operator<(const Fixed &copy);
-	bool &operator<=(const Fixed &copy);
-	bool &operator==(const Fixed &copy);
+	bool operator>(const Fixed &copy) const;
+	bool operator>=(const Fixed &copy) const;
+	bool operator<(const Fixed &copy) const;
+	bool operator<=(const Fixed &copy) const;
+	bool operator==(const Fixed &copy) const;
+	bool operator!=(const Fixed &copy) const;
+
+	Fixed &operator++(int);
+	Fixed &operator--(int);
+	Fixed &operator++(void);
+	Fixed &operator--(void);
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	float toFloat(void) const;

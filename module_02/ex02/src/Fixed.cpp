@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/27 00:54:50 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/27 02:28:16 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,34 +81,54 @@ Fixed &Fixed::operator/(const Fixed &copy)
 	return *this;
 }
 
-bool &Fixed::operator>(const Fixed &copy)
+bool Fixed::operator>(const Fixed &copy) const
 {
-	return (this->toFloat() > copy.toFloat())
+	return (this->toFloat() > copy.toFloat());
 }
 
-bool &Fixed::operator>=(const Fixed &copy)
+bool Fixed::operator>=(const Fixed &copy) const
 {
-	return (this->toFloat() >= copy.toFloat())
+	return (this->toFloat() >= copy.toFloat());
 }
 
-bool &Fixed::operator<(const Fixed &copy)
+bool Fixed::operator<(const Fixed &copy) const
 {
-	return (this->toFloat() < copy.toFloat())
+	return (this->toFloat() < copy.toFloat());
 }
 
-bool &Fixed::operator<=(const Fixed &copy)
+bool Fixed::operator<=(const Fixed &copy) const
 {
-	return (this->toFloat() <= copy.toFloat())
+	return (this->toFloat() <= copy.toFloat());
 }
 
-bool &Fixed::operator==(const Fixed &copy)
+bool Fixed::operator==(const Fixed &copy) const
 {
-	return (this->toFloat() == copy.toFloat())
+	return (this->toFloat() == copy.toFloat());
 }
 
-bool &Fixed::operator!=(const Fixed &copy)
+bool Fixed::operator!=(const Fixed &copy) const
 {
-	return (this->toFloat() != copy.toFloat())
+	return (this->toFloat() != copy.toFloat());
+}
+
+Fixed &Fixed::operator++(int)
+{
+	_value += 1 << _fractionalBits;
+}
+
+Fixed &Fixed::operator--(int)
+{
+	_value -= 1 << _fractionalBits;
+}
+
+Fixed &Fixed::operator++()
+{
+	_value += 1 << _fractionalBits;
+}
+
+Fixed &Fixed::operator--()
+{
+	_value -= 1 << _fractionalBits;
 }
 
 std::ostream &operator<<(std::ostream &o, const Fixed &copy)
