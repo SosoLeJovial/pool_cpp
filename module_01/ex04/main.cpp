@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 00:33:08 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/26 23:44:14 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/11/30 02:27:06 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <fstream>
 #include <string>
 
+// if find_first_not_of returns npos, it means that the string is empty
+// otherwise it means that the string is not empty and it returns the position of the first char that is not a space, tab or newline
 bool isValidString(const std::string str)
 {
 	return str.find_first_not_of("\n\t\r") != std::string::npos;
@@ -30,8 +32,11 @@ bool open_file(std::fstream &file, std::string filename)
 
 std::string replace(std::string s, std::string r, std::string line)
 {
-	if (s.empty() || r.empty() || line.empty())
+	if (line.empty())
 		return (line);
+	if (s.empty())
+		return (line);
+	line += '\n';
 	size_t pos = line.find(s);
 
 	while (pos != std::string::npos)
@@ -56,11 +61,12 @@ int main(int ac, char **av)
 	std::string inputFile = av[1];
 	std::string outputFile = std::string(av[1]) + ".replace";
 
-	if (!isValidString(searchStr))
-	{
-		std::cerr << "Error: <s1> can't be empty!" << std::endl;
-		return (1);
-	}
+	// if (!isValidString(searchStr))
+	// {
+	// 	std::cerr << "Value isValidString: " << isValidString(searchStr) << std::endl;
+	// 	std::cerr << "Error: <s1> can't be empty!" << std::endl;
+	// 	return (1);
+	// }
 	std::fstream myFile;
 	if (!open_file(myFile, av[1]))
 	{
@@ -76,12 +82,8 @@ int main(int ac, char **av)
 		return (1);
 	}
 	std::string line;
-	bool first = true;
 	while (std::getline(myFile, line))
 	{
-		if (!first)
-			newFile << "\n";
-		first = false;
 		std::string modifiedLine = replace(searchStr, replaceStr, line);
 		newFile << modifiedLine;
 	}

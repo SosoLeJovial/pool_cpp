@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/11/04 22:56:07 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/11/29 20:01:27 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= hi_this_is_brain
+NAME	= reference_pointer
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
