@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:31:21 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/05 12:08:51 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/06 05:38:10 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,13 @@
 
 class FileProcess
 {
-private:
-	std::string _file;
-	std::string _s1;
-	std::string _s2;
-
 public:
 	FileProcess();
-	FileProcess(std::string file, std::string s1, std::string s2);
-	static std::ifstream openInputFile(std::string file);
-	static std::ofstream openOutputFile(std::string file);
-	static std::string &customReplace(std::string &line, std::string s1, std::string s2);
+	FileProcess(const std::string &file, const std::string &s1, const std::string &s2);
+	static void processFile(const std::string &file, const std::string &s1, const std::string &s2);
+	static void openOutputFile(const std::string &file, std::ofstream &newFile);
+	static void openInputFile(const std::string &file, std::ifstream &fileToOpen);
+	static std::string customReplace(const std::string &line, const std::string &s1, const std::string &s2);
 	~FileProcess();
 };
 

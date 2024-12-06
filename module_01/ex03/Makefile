@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/10/28 00:31:47 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/12/06 07:37:26 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,17 +51,20 @@ all:            $(NAME)
 -include $(DEPS) $(DEPS_MAIN)
 
 $(NAME):        ${OBJS} ${OBJ_MAIN}
-				$(CC) $(CFLAGS) -I${INCLUDE_PATH} -o $@ ${OBJS} ${OBJ_MAIN}
+	$(CC) $(CFLAGS) -I${INCLUDE_PATH} -o $@ ${OBJS} ${OBJ_MAIN}
 
-${OBJS_DIR}%.o:         ${SRCS_PATH}/%.cpp
-						mkdir -p $(OBJS_DIR)
-						$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I$(INCLUDE_PATH)
+${OBJS_DIR}:
+	mkdir -p $(OBJS_DIR)
+
+
+${OBJS_DIR}%.o:         ${SRCS_PATH}/%.cpp | ${OBJS_DIR}
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I$(INCLUDE_PATH)
 
 clean:
-						rm -rf  $(OBJS_DIR)
+	rm -rf  $(OBJS_DIR)
 
 fclean:         clean
-						rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

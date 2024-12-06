@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/11/22 18:52:40 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/12/06 07:06:25 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,31 +40,31 @@ MAIN			= main.cpp
 #SHELL := /bin/bash
 SHELL := /usr/bin/env bash
 
-OBJS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.o})
-OBJ_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.o})
-DEPS				= $(addprefix .objs/, ${SRCS:$(FILE_EXTENSION)=.d})
-DEPS_MAIN			= $(addprefix .objs/, ${MAIN:$(FILE_EXTENSION)=.d})
+OBJS				= $(addprefix ${OBJS_DIR}, ${SRCS:$(FILE_EXTENSION)=.o})
+OBJ_MAIN			= $(addprefix ${OBJS_DIR}, ${MAIN:$(FILE_EXTENSION)=.o})
+DEPS				= $(addprefix ${OBJS_DIR}, ${SRCS:$(FILE_EXTENSION)=.d})
+DEPS_MAIN			= $(addprefix ${OBJS_DIR}, ${MAIN:$(FILE_EXTENSION)=.d})
 
-all:		$(NAME)
+all:	$(NAME)
 
 -include $(DEPS) $(DEPS_MAIN)
 
 $(NAME):	${OBJS} ${OBJ_MAIN}
-			$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
+	$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
 
-.objs/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)
-			mkdir -p $(OBJS_DIR)
+${OBJS_DIR}:
+	mkdir -p $@
+
+${OBJS_DIR}%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION) | ${OBJS_DIR}
 			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
-clean:		
-			rm -rf 	$(OBJS_DIR)
+clean:
+	rm -rf  $(OBJS_DIR)
 
-fclean:		clean
-			@rm -f $(NAME)
+fclean:	clean
+	rm -f $(NAME)
 
-re:         
-			make fclean
-			make all
+re: fclean all
 
 .PHONY:		all clean fclean re
 

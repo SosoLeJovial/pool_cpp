@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/27 02:28:16 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/06 09:35:27 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,22 +113,30 @@ bool Fixed::operator!=(const Fixed &copy) const
 
 Fixed &Fixed::operator++(int)
 {
-	_value += 1 << _fractionalBits;
+	Fixed temp = *this;
+
+	this->setRawBits(++_value);
+	return *this;
 }
 
 Fixed &Fixed::operator--(int)
 {
 	_value -= 1 << _fractionalBits;
+	return *this;
 }
 
 Fixed &Fixed::operator++()
 {
-	_value += 1 << _fractionalBits;
+	Fixed temp = *this;
+
+	this->setRawBits(++_value);
+	return *this;
 }
 
 Fixed &Fixed::operator--()
 {
 	_value -= 1 << _fractionalBits;
+	return *this;
 }
 
 std::ostream &operator<<(std::ostream &o, const Fixed &copy)

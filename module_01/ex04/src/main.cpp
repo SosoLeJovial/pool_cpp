@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 00:33:08 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/05 11:53:29 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/06 07:22:07 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Error: there is an issue in the output." << std::endl;
-		std::cerr << "Usage: parameters are <filename> <s1> <s2>!" << std::endl;
+		std::cout << "Error: there is an issue in the input." << std::endl;
+		std::cout << "Usage: parameters are <filename> <s1> <s2>!" << std::endl;
 		return 1;
 	}
 	try
@@ -26,9 +26,8 @@ int main(int ac, char **av)
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-
 	return 0;
 }
 
@@ -63,7 +62,7 @@ int main(int ac, char **av)
 
 // 	if (ac != 4)
 // 	{
-// 		std::cerr << "Error: parameters are <filename> <s1> <s2>!" << std::endl;
+// 		std::cout << "Error: parameters are <filename> <s1> <s2>!" << std::endl;
 // 		return (1);
 // 	}
 // 	std::string searchStr = av[2];
@@ -73,14 +72,14 @@ int main(int ac, char **av)
 
 // 	if (searchStr.empty() || inputFile.empty())
 // 	{
-// 		std::cerr << "Error: filename or s1 can't be empty" << std::endl;
+// 		std::cout << "Error: filename or s1 can't be empty" << std::endl;
 // 		return (1);
 // 	}
 
 // 	std::fstream myFile;
 // 	if (!open_file(myFile, av[1]))
 // 	{
-// 		std::cerr << "Error: cannot open " << inputFile << "!" << std::endl;
+// 		std::cout << "Error: cannot open " << inputFile << "!" << std::endl;
 // 		return (1);
 // 	}
 
@@ -88,7 +87,7 @@ int main(int ac, char **av)
 // 	if (!newFile.is_open())
 // 	{
 // 		myFile.close();
-// 		std::cerr << "Error: cannot open the file!" << std::endl;
+// 		std::cout << "Error: cannot open the file!" << std::endl;
 // 		return (1);
 // 	}
 // 	std::string line;
