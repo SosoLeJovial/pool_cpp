@@ -5,27 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 21:37:07 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/07 01:58:05 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/07 06:52:17 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main(void)
+int main()
 {
-	Fixed a(42);
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	std::cout << "Start:" << std::endl;
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << "Atfer increment" << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << "HelloWorld!" << std::endl;
 	return 0;
 }
