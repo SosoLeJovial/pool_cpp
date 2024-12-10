@@ -113,8 +113,10 @@ bool Fixed::operator!=(const Fixed &copy) const
 
 Fixed &Fixed::operator++(int)
 {
-	_value += 1 << _fractionalBits;
-	return *this;
+	Fixed temp = *this;
+
+	temp._value++;
+	return (temp);
 }
 
 Fixed &Fixed::operator--(int)
@@ -125,8 +127,8 @@ Fixed &Fixed::operator--(int)
 
 Fixed &Fixed::operator++()
 {
-	_value += 1 << _fractionalBits;
-	return *this;
+	_value++;
+	return (*this);
 }
 
 Fixed &Fixed::operator--()

@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <iostream>
 #include <string>
 
-int main(int ac, char **argv) 
+int main(int ac, char **argv)
 {
     if (ac == 1)
     {
@@ -25,7 +24,7 @@ int main(int ac, char **argv)
     {
         std::string str = argv[i];
         for (size_t j = 0; j < str.length(); j++)
-            std::cout << (char)toupper(str[j]);
+            std::cout << static_cast<char>(toupper(str[j]));
     }
     std::cout << std::endl;
     return (0);
