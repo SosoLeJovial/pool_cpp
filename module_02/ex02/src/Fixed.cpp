@@ -111,29 +111,30 @@ bool Fixed::operator!=(const Fixed &copy) const
 	return (this->toFloat() != copy.toFloat());
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
 	Fixed temp = *this;
 
-	temp._value++;
+	_value++;
 	return (temp);
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	_value -= 1 << _fractionalBits;
-	return *this;
+	Fixed temp = *this;
+	_value--;
+	return temp;
 }
 
-Fixed &Fixed::operator++()
+Fixed Fixed::operator++()
 {
 	_value++;
 	return (*this);
 }
 
-Fixed &Fixed::operator--()
+Fixed Fixed::operator--()
 {
-	_value -= 1 << _fractionalBits;
+	_value--;
 	return *this;
 }
 
