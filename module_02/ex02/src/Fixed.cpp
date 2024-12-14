@@ -53,32 +53,28 @@ Fixed &Fixed::operator=(const Fixed &copy)
 	return *this;
 }
 
-Fixed &Fixed::operator*(const Fixed &copy)
+Fixed Fixed::operator*(const Fixed &copy)
 {
-	float tmp = copy.toFloat() * this->getRawBits();
-	this->setRawBits(tmp);
-	return *this;
+	float tmp = copy.toFloat() * this->toFloat();
+	return Fixed(tmp);
 }
 
-Fixed &Fixed::operator+(const Fixed &copy)
+Fixed Fixed::operator+(const Fixed &copy)
 {
-	float tmp = copy.toFloat() + this->getRawBits();
-	this->setRawBits(tmp);
-	return *this;
+	float tmp = copy.toFloat() + this->toFloat();
+	return Fixed(tmp);
 }
 
-Fixed &Fixed::operator-(const Fixed &copy)
+Fixed Fixed::operator-(const Fixed &copy)
 {
-	float tmp = copy.toFloat() - this->getRawBits();
-	this->setRawBits(tmp);
-	return *this;
+	float tmp = copy.toFloat() - this->toFloat();
+	return Fixed(tmp);
 }
 
-Fixed &Fixed::operator/(const Fixed &copy)
+Fixed Fixed::operator/(const Fixed &copy)
 {
-	float tmp = copy.toFloat() / this->getRawBits();
-	this->setRawBits(tmp);
-	return *this;
+	float tmp = copy.toFloat() / this->toFloat();
+	return Fixed(tmp);
 }
 
 bool Fixed::operator>(const Fixed &copy) const
@@ -152,4 +148,29 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->_value = raw;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }

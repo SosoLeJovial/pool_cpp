@@ -15,19 +15,30 @@
 #include <iomanip>
 #include <string>
 
-// Function to set terminal text color
+// int main(void)
+// {
+// 	Fixed a;
+// 	Fixed const b(Fixed(5.05f) * Fixed(2));
+// 	std::cout << a << std::endl;
+// 	std::cout << ++a << std::endl;
+// 	std::cout << a << std::endl;
+// 	std::cout << a++ << std::endl;
+// 	std::cout << a << std::endl;
+// 	std::cout << b << std::endl;
+// 	std::cout << Fixed::max(a, b) << std::endl;
+// 	return 0;
+// }
+
 void setColor(const std::string &color)
 {
 	std::cout << color;
 }
 
-// Function to reset terminal text color
 void resetColor()
 {
 	std::cout << "\033[0m";
 }
 
-// Define color codes
 const std::string RED = "\033[31m";
 const std::string GREEN = "\033[32m";
 const std::string YELLOW = "\033[33m";
@@ -39,6 +50,24 @@ int main(void)
 {
 	Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+
+	std::cout << std::setw(30) << std::left << "Initial value of a:" << a << std::endl
+			  << std::endl;
+	std::cout << std::setw(30) << std::left << "Initial value of b:" << b << std::endl
+			  << std::endl;
+	setColor(MAGENTA);
+	std::cout << std::setw(30) << std::left << "a + b:" << a + b << std::endl;
+	resetColor();
+	setColor(CYAN);
+	std::cout << std::setw(30) << std::left << "a - b:" << a - b << std::endl;
+	resetColor();
+	setColor(YELLOW);
+	std::cout << std::setw(30) << std::left << "a * b:" << a * b << std::endl;
+	resetColor();
+	setColor(RED);
+	a + Fixed(20);
+	std::cout << std::setw(30) << std::left << "a / b:" << a / b << std::endl;
+	resetColor();
 
 	std::cout << std::setw(30) << std::left << "Initial value of a:" << a << std::endl
 			  << std::endl;
@@ -71,19 +100,12 @@ int main(void)
 	std::cout << std::setw(30) << std::left << "Value of b:" << b << std::endl;
 	resetColor();
 
+	setColor(BLUE);
+	std::cout << std::setw(30) << std::left << "Max of a and b:" << Fixed::max(a, b) << std::endl;
+	resetColor();
+	setColor(GREEN);
+	std::cout << std::setw(30) << std::left << "Min of a and b:" << Fixed::min(a, b) << std::endl;
+	resetColor();
+
 	return 0;
 }
-
-// int main(void)
-// {
-// 	Fixed a;
-// 	Fixed const b(Fixed(5.05f) * Fixed(2));
-// 	std::cout << a << std::endl;
-// 	std::cout << ++a << std::endl;
-// 	std::cout << a << std::endl;
-// 	std::cout << a++ << std::endl;
-// 	std::cout << a << std::endl;
-// 	std::cout << b << std::endl;
-// 	// std::cout << Fixed::max(a, b) << std::endl;
-// 	return 0;
-// }
