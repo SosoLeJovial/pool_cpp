@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:18:35 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/14 18:17:07 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void ClapTrap::attack(const std::string &target)
 		setColor(RESET);
 		return;
 	}
-	std::cout << "ClapTrap " << _name << " attacks " << target << " causing " << _attack << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << _name << "attacks " << target << " causing " << _attack << " points of damage!" << std::endl;
 	_energy -= 1;
 	setColor(RESET);
 }
