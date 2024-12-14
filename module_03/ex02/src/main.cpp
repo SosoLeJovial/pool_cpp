@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:53:05 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:49:33 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ int main()
 	claptrap.displayStats();
 	scavtrap.displayStats();
 	fragtrap.displayStats();
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	// Test attack
+	fragtrap.attack("target");
+	std::cout << std::endl;
+
+	// Test takeDamage
+	fragtrap.takeDamage(34);
+	std::cout << std::endl;
+
+	// Test beRepaired
+	fragtrap.beRepaired(3);
+	std::cout << std::endl;
 
 	fragtrap.highFivesGuys();
 	return 0;
