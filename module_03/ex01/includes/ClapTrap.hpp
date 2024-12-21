@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:35:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/15 00:37:23 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:25:12 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ protected:
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(std::string name, unsigned int hitPt, unsigned int energy, int attack);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
 	virtual ~ClapTrap();

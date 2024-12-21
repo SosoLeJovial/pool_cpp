@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:27:44 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:29:05 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 	: _name(name), _hitPoints(100), _energy(50), _attack(20)
+{
+	setColor(MAGENTA);
+	std::cout << "ClapTrap " << _name << " created!" << std::endl;
+	setColor(RESET);
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hitPt, unsigned int energy, int attack)
+	: _name(name), _hitPoints(hitPt), _energy(energy), _attack(attack)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << _name << " created!" << std::endl;
