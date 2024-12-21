@@ -6,36 +6,35 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:52:25 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:08:00 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main()
 {
-	std::cout << "HelloWorld!" << std::endl;
-	ClapTrap claptrap("Conan le Barbare");
+	ClapTrap claptrap("Conan the Barbarian");
 
 	std::cout << std::endl;
 
 	claptrap.setEnergy(5);
-	claptrap.setAttack(34);
+	claptrap.setAttack(5);
 	// Test displayStats
 	claptrap.displayStats();
 
 	std::cout << std::endl;
 
 	// Test attack
-	claptrap.attack("target");
+	claptrap.attack("an innocent villager");
 	std::cout << std::endl;
 
 	// Test takeDamage
-	claptrap.takeDamage(34);
+	claptrap.takeDamage(5);
 	std::cout << std::endl;
 
 	// Test beRepaired
-	claptrap.beRepaired(3);
+	claptrap.beRepaired(35);
 	std::cout << std::endl;
 
 	claptrap.displayStats();

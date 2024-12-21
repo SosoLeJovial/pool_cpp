@@ -6,11 +6,11 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:30:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 17:47:09 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:43:58 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {

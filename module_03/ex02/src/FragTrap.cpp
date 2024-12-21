@@ -1,4 +1,16 @@
-#include "../includes/FragTrap.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/21 15:44:06 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/21 16:21:16 by tsofien-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "FragTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -11,7 +23,7 @@ FragTrap::FragTrap() : ClapTrap()
 	setColor(RESET);
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string name) : ClapTrap(name), _hitPoints(100), _energy(100), _attack(30)
 {
 	_hitPoints = 100;
 	_energy = 100;

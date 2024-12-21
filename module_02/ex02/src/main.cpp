@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:37:07 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/07 01:58:05 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 19:46:27 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ const std::string CYAN = "\033[36m";
 
 int main(void)
 {
-	Fixed a;
+	Fixed a(23);
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << std::setw(30) << std::left << "Initial value of a:" << a << std::endl
@@ -65,7 +65,6 @@ int main(void)
 	std::cout << std::setw(30) << std::left << "a * b:" << a * b << std::endl;
 	resetColor();
 	setColor(RED);
-	a + Fixed(20);
 	std::cout << std::setw(30) << std::left << "a / b:" << a / b << std::endl;
 	resetColor();
 

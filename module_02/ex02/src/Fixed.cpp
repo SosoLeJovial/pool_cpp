@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/07 05:13:56 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 20:05:00 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 // Default Constructor
 Fixed::Fixed() : _value(0) {}
 
-Fixed::Fixed(int value)
+Fixed::Fixed(const int value)
 {
-	this->setRawBits(value << _fractionalBits);
+	this->setRawBits(value * (1 << _fractionalBits));
 }
 
-Fixed::Fixed(float value)
+Fixed::Fixed(const float value)
 {
 	this->_value = roundf(value * (1 << _fractionalBits));
 }
@@ -53,58 +53,58 @@ Fixed &Fixed::operator=(const Fixed &copy)
 	return *this;
 }
 
-Fixed Fixed::operator*(const Fixed &copy)
+Fixed Fixed::operator*(const Fixed &other)
 {
-	float tmp = copy.toFloat() * this->toFloat();
+	float tmp = other.toFloat() * this->toFloat();
 	return Fixed(tmp);
 }
 
-Fixed Fixed::operator+(const Fixed &copy)
+Fixed Fixed::operator+(const Fixed &other)
 {
-	float tmp = copy.toFloat() + this->toFloat();
+	float tmp = other.toFloat() + this->toFloat();
 	return Fixed(tmp);
 }
 
-Fixed Fixed::operator-(const Fixed &copy)
+Fixed Fixed::operator-(const Fixed &other)
 {
-	float tmp = copy.toFloat() - this->toFloat();
+	float tmp = this->toFloat() - other.toFloat();
 	return Fixed(tmp);
 }
 
-Fixed Fixed::operator/(const Fixed &copy)
+Fixed Fixed::operator/(const Fixed &other)
 {
-	float tmp = copy.toFloat() / this->toFloat();
+	float tmp = this->toFloat() / other.toFloat();
 	return Fixed(tmp);
 }
 
-bool Fixed::operator>(const Fixed &copy) const
+bool Fixed::operator>(const Fixed &other) const
 {
-	return (this->toFloat() > copy.toFloat());
+	return (this->toFloat() > other.toFloat());
 }
 
-bool Fixed::operator>=(const Fixed &copy) const
+bool Fixed::operator>=(const Fixed &other) const
 {
-	return (this->toFloat() >= copy.toFloat());
+	return (this->toFloat() >= other.toFloat());
 }
 
-bool Fixed::operator<(const Fixed &copy) const
+bool Fixed::operator<(const Fixed &other) const
 {
-	return (this->toFloat() < copy.toFloat());
+	return (this->toFloat() < other.toFloat());
 }
 
-bool Fixed::operator<=(const Fixed &copy) const
+bool Fixed::operator<=(const Fixed &other) const
 {
-	return (this->toFloat() <= copy.toFloat());
+	return (this->toFloat() <= other.toFloat());
 }
 
-bool Fixed::operator==(const Fixed &copy) const
+bool Fixed::operator==(const Fixed &other) const
 {
-	return (this->toFloat() == copy.toFloat());
+	return (this->toFloat() == other.toFloat());
 }
 
-bool Fixed::operator!=(const Fixed &copy) const
+bool Fixed::operator!=(const Fixed &other) const
 {
-	return (this->toFloat() != copy.toFloat());
+	return (this->toFloat() != other.toFloat());
 }
 
 Fixed Fixed::operator++(int)
@@ -112,7 +112,7 @@ Fixed Fixed::operator++(int)
 	Fixed temp = *this;
 
 	_value++;
-	return (temp);
+	return temp;
 }
 
 Fixed Fixed::operator--(int)
@@ -134,9 +134,9 @@ Fixed Fixed::operator--()
 	return *this;
 }
 
-std::ostream &operator<<(std::ostream &o, const Fixed &copy)
+std::ostream &operator<<(std::ostream &o, const Fixed &other)
 {
-	o << copy.toFloat();
+	o << other.toFloat();
 	return o;
 }
 

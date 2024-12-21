@@ -6,14 +6,14 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 23:43:31 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:06:59 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: _name(""), _hitPoints(100), _energy(0), _attack(0)
+	: _name("no one"), _hitPoints(10), _energy(10), _attack(0)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << "destroyed!" << std::endl;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap()
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: _name(name), _hitPoints(100), _energy(0), _attack(0)
+	: _name(name), _hitPoints(10), _energy(10), _attack(0)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << _name << " created!" << std::endl;
@@ -98,14 +98,15 @@ void ClapTrap::beRepaired(unsigned int amount)
 		setColor(RESET);
 		return;
 	}
-	if (_hitPoints < 1)
+	if (_energy < 1)
 	{
 		std::cout << "ClapTrap " << _name << " has no energy to be repaired!" << std::endl;
 		setColor(RESET);
 		return;
 	}
 	std::cout << "ClapTrap " << _name << " is being repaired for " << amount << " points!" << std::endl;
-	_hitPoints += amount;
+	amount > _hitPoints ? _hitPoints = 10 : _hitPoints += amount;
+	_energy -= 1;
 	setColor(RESET);
 }
 

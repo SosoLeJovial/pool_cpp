@@ -6,11 +6,11 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:30:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:47:40 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:27:49 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -19,11 +19,9 @@ ScavTrap::ScavTrap() : ClapTrap()
 	setColor(RESET);
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
+	: ClapTrap(name)
 {
-	_hitPoints = 100;
-	_energy = 50;
-	_attack = 20;
 	setColor(BLUE);
 	std::cout << "ScavTrap " << _name << " has been created!" << std::endl;
 	setColor(RESET);

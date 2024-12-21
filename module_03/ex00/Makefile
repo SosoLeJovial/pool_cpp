@@ -56,7 +56,7 @@ ${OBJS_DIR}:
 	mkdir -p $@
 
 ${OBJS_DIR}%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION) | ${OBJS_DIR}
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I${INCLUDE_PATH}
 
 clean:
 	rm -rf  $(OBJS_DIR)

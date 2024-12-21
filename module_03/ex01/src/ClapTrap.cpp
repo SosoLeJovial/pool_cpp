@@ -6,14 +6,13 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:18:26 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:27:44 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: _name(""), _hitPoints(100), _energy(0), _attack(0)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << "destroyed!" << std::endl;
@@ -21,7 +20,7 @@ ClapTrap::ClapTrap()
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: _name(name), _hitPoints(100), _energy(0), _attack(0)
+	: _name(name), _hitPoints(100), _energy(50), _attack(20)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << _name << " created!" << std::endl;

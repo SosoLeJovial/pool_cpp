@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:38 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/21 23:23:25 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:12:19 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ class Fixed
 private:
 	int _value;
 	static const int _fractionalBits = 8;
+
 public:
 	Fixed();
 	Fixed(const Fixed &copy);
 	~Fixed();
+
 	Fixed &operator=(const Fixed &copy);
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 };

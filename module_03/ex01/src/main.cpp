@@ -6,18 +6,17 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 18:18:07 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/21 15:32:07 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
-#include "../includes/ScavTrap.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	std::cout << "HelloWorld!" << std::endl;
-	ClapTrap claptrap("Conan le Barbare");
-	ScavTrap scavtrap("La ciboulette");
+	ClapTrap claptrap("Conan the Barbarian");
+	ScavTrap scavtrap("Brave Sir Robin");
 
 	std::cout << std::endl;
 	claptrap.displayStats();
@@ -28,7 +27,19 @@ int main()
 	scavtrap.guardGate();
 	std::cout << std::endl;
 
-	scavtrap.attack("Conan le Barbare");
+	scavtrap.attack("Conan the Barbarian");
+	std::cout << std::endl;
+
+	claptrap.takeDamage(20);
+	std::cout << std::endl;
+
+	claptrap.attack("Brave Sir Robin");
+	std::cout << std::endl;
+
+	scavtrap.takeDamage(95);
+	std::cout << std::endl;
+
+	scavtrap.beRepaired(5);
 	std::cout << std::endl;
 
 	scavtrap.displayStats();
