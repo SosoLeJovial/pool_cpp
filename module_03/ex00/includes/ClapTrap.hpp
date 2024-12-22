@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:35:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/15 00:37:08 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:56:37 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ private:
 
 public:
 	ClapTrap();
-	ClapTrap(std::string name);
+	ClapTrap(const std::string &name);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
 	~ClapTrap();

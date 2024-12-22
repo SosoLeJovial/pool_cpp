@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 20:24:41 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:56:47 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap()
 	setColor(RESET);
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(const std::string &name)
 	: _name(name), _hitPoints(10), _energy(10), _attack(0)
 {
 	setColor(MAGENTA);

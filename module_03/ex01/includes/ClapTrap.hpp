@@ -6,11 +6,9 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:35:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 20:25:12 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/23 00:13:53 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#pragma once
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
@@ -36,8 +34,8 @@ protected:
 
 public:
 	ClapTrap();
-	ClapTrap(std::string name);
-	ClapTrap(std::string name, unsigned int hitPt, unsigned int energy, int attack);
+	ClapTrap(const std::string &name);
+	ClapTrap(unsigned int hitPt, unsigned int energy, int attack);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
 	virtual ~ClapTrap();
@@ -47,12 +45,12 @@ public:
 	void beRepaired(unsigned int amount);
 	void displayStats() const;
 
-	void setName(const std::string name);
-	std::string getName() const;
-	void setHitPoints(int hitPoints);
 	unsigned int getHitPoints() const;
-	void setEnergy(int energy);
 	unsigned int getEnergy() const;
+	std::string getName() const;
+	void setName(const std::string name);
+	void setHitPoints(int hitPoints);
+	void setEnergy(int energy);
 	void setAttack(int attack);
 };
 

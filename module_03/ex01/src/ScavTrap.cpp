@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 16:30:12 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:27:49 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/23 00:17:43 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ ScavTrap::ScavTrap() : ClapTrap()
 	setColor(RESET);
 }
 
-ScavTrap::ScavTrap(std::string name)
-	: ClapTrap(name)
+ScavTrap::ScavTrap(const std::string &name)
+	: ClapTrap(100, 50, 20)
 {
+	this->_name = name;
 	setColor(BLUE);
 	std::cout << "ScavTrap " << _name << " has been created!" << std::endl;
 	setColor(RESET);

@@ -6,14 +6,14 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 21:35:41 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/11/24 17:57:31 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:23:12 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-// Default Constructor 
+// Default Constructor
 Fixed::Fixed() : _value(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -44,7 +44,7 @@ float Fixed::toFloat() const
 // Deconstructor
 Fixed::~Fixed()
 {
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 // Copy Constructor
@@ -55,7 +55,7 @@ Fixed::Fixed(const Fixed &copy)
 }
 
 // Copy assignement operator
-Fixed& Fixed::operator=(const Fixed &copy)
+Fixed &Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &copy)
@@ -63,7 +63,7 @@ Fixed& Fixed::operator=(const Fixed &copy)
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream &o, const Fixed &copy)
+std::ostream &operator<<(std::ostream &o, const Fixed &copy)
 {
 	o << copy.toFloat();
 	return o;

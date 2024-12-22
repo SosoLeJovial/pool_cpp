@@ -5,26 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:44:15 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/22 13:33:35 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/23 00:32:40 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-	: _name(""), _hitPoints(100), _energy(0), _attack(0)
 {
 	setColor(MAGENTA);
-	std::cout << "ClapTrap " << "destroyed!" << std::endl;
+	std::cout << "ClapTrap " << "created!" << std::endl;
 	setColor(RESET);
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: _name(name), _hitPoints(100), _energy(0), _attack(0)
+	: _name(name), _hitPoints(10), _energy(0), _attack(0)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap " << _name << " created!" << std::endl;
+	setColor(RESET);
+}
+
+ClapTrap::ClapTrap(unsigned int hitPt, unsigned int energy, int attack)
+	: _hitPoints(hitPt), _energy(energy), _attack(attack)
+{
+	setColor(MAGENTA);
+	std::cout << "Claptrap " << _name << " created!" << std::endl;
 	setColor(RESET);
 }
 

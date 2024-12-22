@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:44:06 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 16:21:16 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/23 00:24:19 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ FragTrap::FragTrap() : ClapTrap()
 	setColor(RESET);
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name), _hitPoints(100), _energy(100), _attack(30)
+FragTrap::FragTrap(const std::string &name)
+	: ClapTrap(100, 100, 30)
 {
-	_hitPoints = 100;
-	_energy = 100;
-	_attack = 30;
+	this->_name = name;
 	setColor(GREEN);
 	std::cout << "FragTrap " << _name << " has been created!" << std::endl;
 	setColor(RESET);
