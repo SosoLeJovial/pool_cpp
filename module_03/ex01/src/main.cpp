@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:32:07 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/29 16:52:07 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main()
 	ClapTrap claptrap("Conan the Barbarian");
 	ScavTrap scavtrap("Brave Sir Robin");
 
+	// display stats
 	std::cout << std::endl;
 	claptrap.displayStats();
 	std::cout << std::endl;
@@ -28,9 +29,6 @@ int main()
 	std::cout << std::endl;
 
 	scavtrap.attack("Conan the Barbarian");
-	std::cout << std::endl;
-
-	claptrap.takeDamage(20);
 	std::cout << std::endl;
 
 	claptrap.attack("Brave Sir Robin");

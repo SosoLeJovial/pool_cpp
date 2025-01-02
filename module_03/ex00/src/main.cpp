@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:08:00 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/28 16:34:13 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int main()
 
 	std::cout << std::endl;
 
-	claptrap.setEnergy(5);
-	claptrap.setAttack(5);
 	// Test displayStats
+	claptrap.displayStats();
+	claptrap.setAttack(5);
+	claptrap.setEnergy(5);
 	claptrap.displayStats();
 
 	std::cout << std::endl;
