@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:20:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 15:56:45 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/14 23:50:03 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/19 08:48:30 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../includes/Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongCat::WrongCat() : WrongAnimal()
+Cat::Cat() : Animal("Cat")
 {
-	setColor(RED);
-	std::cout << "WrongCat default constructor called" << std::endl;
+	setColor(CYAN);
+	std::cout << "Cat default constructor called" << std::endl;
 	resetColor();
+	this->_brain = new Brain();
 }
 
-WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
+Cat::Cat(const Cat &src) : Animal(src)
 {
-	setColor(RED);
-	std::cout << "WrongCat copy constructor called" << std::endl;
+	setColor(CYAN);
+	std::cout << "Cat copy constructor called" << std::endl;
 	resetColor();
 	*this = src;
 }
@@ -35,10 +36,11 @@ WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongCat::~WrongCat()
+Cat::~Cat()
 {
-	setColor(RED);
-	std::cout << "WrongCat destructor called" << std::endl;
+	delete this->_brain;
+	setColor(CYAN);
+	std::cout << "Cat destructor called" << std::endl;
 	resetColor();
 }
 
@@ -46,10 +48,14 @@ WrongCat::~WrongCat()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongCat &WrongCat::operator=(WrongCat const &rhs)
+Cat &Cat::operator=(Cat const &rhs)
 {
 	if (this != &rhs)
+	{
 		this->_type = rhs.getType();
+		for (int i = 0; i < 100; i++)
+			this->_brain->setIdea(i, rhs._brain->getIdeas()[i]);
+	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:20:18 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 17:20:19 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 15:42:20 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
 	Animal &operator=(Animal const &rhs);
 
-	void makeSound() const;
+	virtual void makeSound() const;
 
 	std::string getType() const;
 	void setType(std::string type);

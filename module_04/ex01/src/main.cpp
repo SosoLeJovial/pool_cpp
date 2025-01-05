@@ -6,39 +6,56 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 22:07:49 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:49:09 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
-#include "../includes/Cat.hpp"
-#include "../includes/Dog.hpp"
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include <string>
 
 int main()
 {
-	const int size = 10;
-	Animal **animals = new Animal *[size];
+	const Animal *meta = new Animal();
+	const Animal *dog = new Dog();
+	const Cat *cat = new Cat();
 
-	for (int i = 0; i < size / 2; ++i)
+	std::cout << dog->getType() << " " << std::endl;
+	dog->makeSound();
+	cat->makeSound(); // will output the cat sound!
+	meta->makeSound();
+
+	const Cat bv = *cat;
+	for (size_t i = 0; i < 100; i++)
 	{
-		animals[i] = new Cat();
+		bv.setBrain(i, "Idea " + std::to_string(i));
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	for (int i = size / 2; i < size; ++i)
-	{
-		animals[i] = new Dog();
-	}
-	std::cout << std::endl;
+
+	// bv.getBrain();
+
+	delete meta;
+	delete dog;
+	delete cat;
+
+	const Cat *lopotichat = new Cat();
+
+	lopotichat->makeSound();
+
+	delete lopotichat;
+
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	for (int i = 0; i < size; ++i)
-	{
-		delete animals[i];
-	}
+	const WrongAnimal *wrong = new WrongAnimal();
+	const WrongAnimal *wrong_cat = new WrongCat();
+
+	wrong->makeSound();
+	wrong_cat->makeSound();
+
+	delete wrong;
+	delete wrong_cat;
 	return 0;
 }

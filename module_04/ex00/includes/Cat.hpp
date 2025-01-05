@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 21:58:44 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 21:58:46 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 15:45:00 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	Cat(Cat const &src);
 	virtual ~Cat();
 
+	void makeSound() const;
 	Cat &operator=(Cat const &rhs);
 
 private:

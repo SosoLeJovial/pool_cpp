@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 15:55:02 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 14:56:57 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/14 23:37:55 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/14 23:38:25 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "../includes/utils.hpp"
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+void setColor(std::string color)
 {
-public:
-	ScavTrap();
-	ScavTrap(const std::string &name);
-	ScavTrap(const ScavTrap &other);
-	~ScavTrap();
+	std::cout << color;
+}
 
-	ScavTrap &operator=(const ScavTrap &other);
-
-	void guardGate();
-};
-
-#endif
+void resetColor()
+{
+	std::cout << RESET;
+}

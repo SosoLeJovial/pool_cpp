@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 15:55:02 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 14:56:57 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/17 17:20:21 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/17 18:01:19 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ScavTrap : public ClapTrap
+class Cat : public Animal
 {
+
 public:
-	ScavTrap();
-	ScavTrap(const std::string &name);
-	ScavTrap(const ScavTrap &other);
-	~ScavTrap();
+	Cat();
+	Cat(Cat const &src);
+	virtual ~Cat();
 
-	ScavTrap &operator=(const ScavTrap &other);
+	Cat &operator=(Cat const &rhs);
 
-	void guardGate();
+private:
+	Brain *_brain;
 };
 
-#endif
+#endif /* ************************************************************* CAT_H */

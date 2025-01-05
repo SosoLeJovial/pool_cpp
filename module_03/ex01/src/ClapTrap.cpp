@@ -6,13 +6,14 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:14 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/23 00:33:50 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:51:19 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
+	: _name("no one"), _hitPoints(10), _energy(0), _attack(0)
 {
 	setColor(MAGENTA);
 	std::cout << "ClapTrap instance created!" << std::endl;

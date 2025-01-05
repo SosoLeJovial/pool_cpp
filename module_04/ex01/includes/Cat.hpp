@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:20:21 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 18:01:19 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/17 21:58:44 by tsofien-          #+#    #+#             */
+/*   Updated: 2025/01/05 19:33:14 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ public:
 	Cat(Cat const &src);
 	virtual ~Cat();
 
+	void makeSound() const;
 	Cat &operator=(Cat const &rhs);
+
+	const Brain &getBrain(void) const;
+	void setBrain(int index, std::string idea);
 
 private:
 	Brain *_brain;

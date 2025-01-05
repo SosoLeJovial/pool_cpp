@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2025/01/02 15:55:51 by tsofien-         ###   ########.fr        #
+#    Updated: 2024/12/17 21:59:56 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= POLYMORPHISME 
+NAME	= BURN 
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
@@ -25,7 +25,7 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 ################################################################################
 
 FILE_EXTENSION	= .cpp
-SRCS			= Animal.cpp Cat.cpp Dog.cpp utils.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS			= Animal.cpp Cat.cpp Dog.cpp utils.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS_DIR		= .objs/
 SRCS_PATH		= src
@@ -50,13 +50,13 @@ all:	$(NAME)
 -include $(DEPS) $(DEPS_MAIN)
 
 $(NAME):	${OBJS} ${OBJ_MAIN}
-	$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN} -I${INCLUDE_PATH}
+	$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
 
 ${OBJS_DIR}:
 	mkdir -p $@
 
 ${OBJS_DIR}%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION) | ${OBJS_DIR}
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I${INCLUDE_PATH}
+			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 clean:
 	rm -rf  $(OBJS_DIR)

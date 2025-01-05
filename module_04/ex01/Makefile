@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2024/12/17 21:59:56 by tsofien-         ###   ########.fr        #
+#    Updated: 2025/01/02 16:08:24 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,13 @@ all:	$(NAME)
 -include $(DEPS) $(DEPS_MAIN)
 
 $(NAME):	${OBJS} ${OBJ_MAIN}
-	$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN}
+	$(CC) $(CFLAGS) $(DFLAGS) -o $@ ${OBJS} ${OBJ_MAIN} -I${INCLUDE_PATH}
 
 ${OBJS_DIR}:
 	mkdir -p $@
 
 ${OBJS_DIR}%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION) | ${OBJS_DIR}
-			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+			$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I${INCLUDE_PATH}
 
 clean:
 	rm -rf  $(OBJS_DIR)

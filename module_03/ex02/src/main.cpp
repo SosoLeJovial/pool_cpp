@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/21 15:43:49 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:59:14 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int main()
 {
-	std::cout << "HelloWorld!" << std::endl;
 	ClapTrap claptrap("Le poireau");
 	ScavTrap scavtrap("La ciboulette");
 	FragTrap fragtrap("Le chou-fleur");

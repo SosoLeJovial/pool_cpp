@@ -1,4 +1,4 @@
-#include "../includes/Brain.hpp"
+#include "Brain.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -15,6 +15,8 @@ Brain::Brain()
 Brain::Brain(const Brain &src)
 {
 	setColor(PINK);
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = src._ideas[i];
 	std::cout << "Brain copy constructor called" << std::endl;
 	*this = src;
 	resetColor();

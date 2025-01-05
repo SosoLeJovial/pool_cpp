@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 15:55:02 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 14:56:57 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/17 17:20:34 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/17 17:20:35 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "ClapTrap.hpp"
+#include "WrongAnimal.hpp"
 
-class ScavTrap : public ClapTrap
+class WrongCat : public WrongAnimal
 {
+
 public:
-	ScavTrap();
-	ScavTrap(const std::string &name);
-	ScavTrap(const ScavTrap &other);
-	~ScavTrap();
+	WrongCat();
+	WrongCat(WrongCat const &src);
+	virtual ~WrongCat();
 
-	ScavTrap &operator=(const ScavTrap &other);
+	WrongCat &operator=(WrongCat const &rhs);
 
-	void guardGate();
+private:
 };
 
-#endif
+#endif /* ******************************************************** WRONGCAT_H */

@@ -6,11 +6,11 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:50:03 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/19 08:48:30 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:32:36 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Cat.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -18,10 +18,10 @@
 
 Cat::Cat() : Animal("Cat")
 {
+	_brain = new Brain();
 	setColor(CYAN);
 	std::cout << "Cat default constructor called" << std::endl;
 	resetColor();
-	this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat &src) : Animal(src)
@@ -29,6 +29,7 @@ Cat::Cat(const Cat &src) : Animal(src)
 	setColor(CYAN);
 	std::cout << "Cat copy constructor called" << std::endl;
 	resetColor();
+	this->_brain = new Brain(src.getBrain());
 	*this = src;
 }
 
@@ -38,7 +39,7 @@ Cat::Cat(const Cat &src) : Animal(src)
 
 Cat::~Cat()
 {
-	delete this->_brain;
+	delete _brain;
 	setColor(CYAN);
 	std::cout << "Cat destructor called" << std::endl;
 	resetColor();
@@ -63,8 +64,23 @@ Cat &Cat::operator=(Cat const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void Cat::makeSound() const
+{
+	std::cout << "MEOW MEOW" << std::endl;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+const Brain &Cat::getBrain(void) const
+{
+	return *_brain;
+}
+
+void Cat::setBrain(int index, std::string idea)
+{
+	_brain->setIdea(index, idea);
+}
 
 /* ************************************************************************** */

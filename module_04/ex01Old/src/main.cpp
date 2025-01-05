@@ -6,48 +6,39 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 06:50:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 14:55:17 by tsofien-         ###   ########.fr       */
+/*   Updated: 2024/12/17 22:07:49 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
 
 int main()
 {
-	ClapTrap *claptrap = new ClapTrap("Conan the Barbarian");
-	ScavTrap *scavtrap = new ScavTrap("Brave Sir Robin");
+	const int size = 10;
+	Animal **animals = new Animal *[size];
 
-	// display stats
+	for (int i = 0; i < size / 2; ++i)
+	{
+		animals[i] = new Cat();
+	}
 	std::cout << std::endl;
-	claptrap->displayStats();
-	scavtrap->displayStats();
 	std::cout << std::endl;
-
-	scavtrap->guardGate();
-	scavtrap->guardGate();
 	std::cout << std::endl;
-
-	scavtrap->attack("Conan the Barbarian");
+	for (int i = size / 2; i < size; ++i)
+	{
+		animals[i] = new Dog();
+	}
 	std::cout << std::endl;
-
-	claptrap->attack("Brave Sir Robin");
 	std::cout << std::endl;
-
-	scavtrap->takeDamage(95);
 	std::cout << std::endl;
 
-	scavtrap->beRepaired(5);
-	std::cout << std::endl;
-
-	scavtrap->displayStats();
-	claptrap->displayStats();
-	delete scavtrap;
-	delete claptrap;
+	for (int i = 0; i < size; ++i)
+	{
+		delete animals[i];
+	}
 	return 0;
-}
-
-void setColor(const std::string &color)
-{
-	std::cout << color;
 }

@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 00:19:51 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/23 00:31:25 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:56:52 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	FragTrap();
 	FragTrap(const std::string &name);
 	FragTrap(FragTrap const &src);
-	virtual ~FragTrap();
+	~FragTrap();
 
 	FragTrap &operator=(FragTrap const &rhs);
 

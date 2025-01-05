@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 15:55:02 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/23 00:23:38 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 14:46:13 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	ScavTrap();
 	ScavTrap(const std::string &name);
 	ScavTrap(const ScavTrap &other);
-	virtual ~ScavTrap();
+	~ScavTrap();
 
 	ScavTrap &operator=(const ScavTrap &other);
 
