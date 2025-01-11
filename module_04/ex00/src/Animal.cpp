@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:49:37 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 15:55:57 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:40:59 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ Animal::Animal()
 Animal::Animal(const std::string &type)
 	: _type(type)
 {
+	setColor(GREEN);
+	std::cout << "Animal parametezed constructor called" << std::endl;
+	resetColor();
 }
 
 Animal::Animal(const Animal &src)
@@ -66,7 +69,7 @@ Animal &Animal::operator=(Animal const &rhs)
 
 void Animal::makeSound() const
 {
-	std::cout << _type << " An animal make a sound ?? wtf" << std::endl;
+	std::cout << _type << " make a sound ?? wtf" << std::endl;
 }
 
 /*

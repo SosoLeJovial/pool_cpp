@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:20:02 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/05 18:31:03 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:47:53 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog() : Animal("Dog")
 	setColor(YELLOW);
 	std::cout << "Dog default constructor called" << std::endl;
 	resetColor();
-	this->_brain = new Brain();
+	_brain = new Brain;
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
@@ -29,6 +29,7 @@ Dog::Dog(const Dog &src) : Animal(src)
 	setColor(YELLOW);
 	std::cout << "Dog copy constructor called" << std::endl;
 	resetColor();
+	this->_brain = new Brain(src.getBrain());
 	*this = src;
 }
 
@@ -38,7 +39,7 @@ Dog::Dog(const Dog &src) : Animal(src)
 
 Dog::~Dog()
 {
-	delete this->_brain;
+	delete _brain;
 	setColor(YELLOW);
 	std::cout << "Dog destructor called" << std::endl;
 	resetColor();
@@ -71,5 +72,15 @@ void Dog::makeSound() const
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
+
+const Brain &Dog::getBrain(void) const
+{
+	return *_brain;
+}
+
+void Dog::setBrain(int index, std::string idea)
+{
+	_brain->setIdea(index, idea);
+}
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:20:24 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 16:31:32 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 03:30:36 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ class Dog : public Animal
 public:
 	Dog();
 	Dog(Dog const &src);
-	virtual ~Dog();
+	~Dog();
 
 	void makeSound() const;
 
 	Dog &operator=(Dog const &rhs);
+
+	const Brain &getBrain(void) const;
+	void setBrain(int index, std::string idea);
 
 private:
 	Brain *_brain;

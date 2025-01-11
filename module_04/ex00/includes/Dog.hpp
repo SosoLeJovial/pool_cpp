@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:20:24 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/02 15:43:50 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 03:28:39 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal
 public:
 	Dog();
 	Dog(Dog const &src);
-	virtual ~Dog();
+	~Dog();
 
 	void makeSound() const;
 

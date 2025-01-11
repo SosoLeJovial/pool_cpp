@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:50:03 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/05 19:32:36 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:47:24 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	_brain = new Brain();
 	setColor(CYAN);
 	std::cout << "Cat default constructor called" << std::endl;
 	resetColor();
+	_brain = new Brain();
 }
 
 Cat::Cat(const Cat &src) : Animal(src)
