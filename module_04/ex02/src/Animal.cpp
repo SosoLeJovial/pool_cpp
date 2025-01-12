@@ -6,11 +6,11 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:49:37 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/15 00:17:17 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/11 05:41:35 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "Animal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -27,6 +27,9 @@ Animal::Animal()
 Animal::Animal(const std::string &type)
 	: _type(type)
 {
+	setColor(GREEN);
+	std::cout << "Animal parametezed constructor called" << std::endl;
+	resetColor();
 }
 
 Animal::Animal(const Animal &src)
@@ -66,7 +69,7 @@ Animal &Animal::operator=(Animal const &rhs)
 
 void Animal::makeSound() const
 {
-	std::cout << _type << " sound" << std::endl;
+	std::cout << _type << " An animal make a sound ?? wtf" << std::endl;
 }
 
 /*

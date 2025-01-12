@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.cpp                                          :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 23:37:55 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/14 23:38:25 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/17 17:57:33 by tsofien-          #+#    #+#             */
+/*   Updated: 2024/12/19 08:46:40 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/utils.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-void setColor(std::string color)
-{
-	std::cout << color;
-}
+#include "utils.hpp"
 
-void resetColor()
+class Brain
 {
-	std::cout << RESET;
-}
+
+public:
+	Brain();
+	Brain(Brain const &src);
+	~Brain();
+
+	Brain &operator=(Brain const &rhs);
+	std::string *getIdeas() const;
+	void setIdea(int index, std::string idea);
+
+private:
+	std::string _ideas[100];
+};
+
+#endif /* *********************************************************** BRAIN_H */

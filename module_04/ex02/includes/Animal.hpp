@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:20:21 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 18:01:19 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/17 17:20:18 by tsofien-          #+#    #+#             */
+/*   Updated: 2025/01/12 20:03:33 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "utils.hpp"
 
-class Cat : public Animal
+class Animal
 {
-
 public:
-	Cat();
-	Cat(Cat const &src);
-	virtual ~Cat();
+	Animal();
+	Animal(const std::string &type);
+	Animal(Animal const &src);
+	virtual ~Animal();
 
-	Cat &operator=(Cat const &rhs);
+	Animal &operator=(Animal const &rhs);
 
-private:
-	Brain *_brain;
+	virtual void makeSound() const = 0;
+
+	std::string getType() const;
+	void setType(std::string type);
+
+protected:
+	std::string _type;
 };
 
-#endif /* ************************************************************* CAT_H */
+#endif /* ********************************************************** ANIMAL_H */

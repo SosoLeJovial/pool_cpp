@@ -1,50 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:20:10 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 17:42:47 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/14 23:50:03 by tsofien-          #+#    #+#             */
+/*   Updated: 2025/01/11 05:47:24 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/WrongAnimal.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-WrongAnimal::WrongAnimal()
-	: _type("Wrong Animal")
+Cat::Cat() : Animal("Cat")
 {
 	setColor(CYAN);
-	std::cout << "WrongAnimal default constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 	resetColor();
+	_brain = new Brain();
 }
 
-WrongAnimal::WrongAnimal(std::string type)
-	: _type(type)
-{
-}
-
-WrongAnimal::WrongAnimal(const WrongAnimal &src)
+Cat::Cat(const Cat &src) : Animal(src)
 {
 	setColor(CYAN);
-	std::cout << "Wrong Animal copy constructor called" << std::endl;
+	std::cout << "Cat copy constructor called" << std::endl;
+	resetColor();
+	this->_brain = new Brain(src.getBrain());
 	*this = src;
-	resetColor();
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-WrongAnimal::~WrongAnimal()
+Cat::~Cat()
 {
+	delete _brain;
 	setColor(CYAN);
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 	resetColor();
 }
 
@@ -52,10 +49,14 @@ WrongAnimal::~WrongAnimal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
+Cat &Cat::operator=(Cat const &rhs)
 {
 	if (this != &rhs)
+	{
 		this->_type = rhs.getType();
+		for (int i = 0; i < 100; i++)
+			this->_brain->setIdea(i, rhs._brain->getIdeas()[i]);
+	}
 	return *this;
 }
 
@@ -63,20 +64,23 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &rhs)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void WrongAnimal::makeSound() const
+void Cat::makeSound() const
 {
-	setColor(GREEN);
-	std::cout << _type << " sound" << std::endl;
-	resetColor();
+	std::cout << "MEOW MEOW" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string WrongAnimal::getType() const
+const Brain &Cat::getBrain(void) const
 {
-	return _type;
+	return *_brain;
+}
+
+void Cat::setBrain(int index, std::string idea)
+{
+	_brain->setIdea(index, idea);
 }
 
 /* ************************************************************************** */
