@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:40:59 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/17 00:51:19 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:51:33 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ class AMateria
 {
 
 public:
-	AMateria();
-	AMateria(std::string const &type);
-	AMateria(AMateria const &src);
 	~AMateria();
 
 	AMateria &operator=(AMateria const &rhs);
-	std::string const &getType() const; // Returns the materia type
+	std::string const &getType() const;
 	virtual AMateria *clone() const = 0;
 	virtual void use(ICharacter &target);
 

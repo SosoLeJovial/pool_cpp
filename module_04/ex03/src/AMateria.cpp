@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:41:07 by tsofien-          #+#    #+#             */
-/*   Updated: 2025/01/17 00:52:14 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:44:28 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,6 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-
-AMateria::AMateria()
-	: _type("")
-{
-	setColor(GREEN);
-	std::cout << "Default constructor Amateria Call!" << std::endl;
-	resetColor();
-}
-
-AMateria::AMateria(std::string const &type)
-	: _type(type)
-{
-	setColor(GREEN);
-	std::cout << "constructor parametezed Amateria Call!" << std::endl;
-	resetColor();
-}
-
-AMateria::AMateria(const AMateria &src)
-{
-	setColor(GREEN);
-	*this = src;
-	std::cout << "Copy constructor Amateria Call!" << std::endl;
-	resetColor();
-}
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
