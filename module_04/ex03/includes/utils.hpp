@@ -6,7 +6,7 @@
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:35:37 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/17 17:59:35 by tsofien-         ###   ########.fr       */
+/*   Updated: 2025/01/02 16:06:02 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #define BLUE "\033[34m"
 #define MAGENTA "\033[35m"
 #define CYAN "\033[36m"
-#define PINK "\033[38;5;206m"
 #define RESET "\033[0m"
+#define PINK "\033[38;5;206m"
 
 #include <iostream>
 #include <string>

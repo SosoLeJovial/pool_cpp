@@ -1,54 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 23:49:37 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/19 21:35:06 by tsofien-         ###   ########.fr       */
+/*   Created: 2025/01/16 18:41:07 by tsofien-          #+#    #+#             */
+/*   Updated: 2025/01/17 00:52:14 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "AMateria.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
-	: _type("Animal")
+AMateria::AMateria()
+	: _type("")
 {
 	setColor(GREEN);
-	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << "Default constructor Amateria Call!" << std::endl;
 	resetColor();
 }
 
-Animal::Animal(const std::string &type)
+AMateria::AMateria(std::string const &type)
 	: _type(type)
 {
 	setColor(GREEN);
-	std::cout << "Animal parameterized constructor called" << std::endl;
+	std::cout << "constructor parametezed Amateria Call!" << std::endl;
 	resetColor();
 }
 
-Animal::Animal(const Animal &src)
-	: _type(src._type)
+AMateria::AMateria(const AMateria &src)
 {
 	setColor(GREEN);
-	std::cout << "Animal copy constructor called" << std::endl;
-	resetColor();
 	*this = src;
+	std::cout << "Copy constructor Amateria Call!" << std::endl;
+	resetColor();
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AMateria::~AMateria()
 {
-	setColor(GREEN);
-	std::cout << "Animal destructor called" << std::endl;
+	setColor(RED);
+	std::cout << "destructor Amateria Call!" << std::endl;
 	resetColor();
 }
 
@@ -56,29 +55,37 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &Animal::operator=(Animal const &rhs)
+AMateria &AMateria::operator=(AMateria const &rhs)
 {
 	if (this != &rhs)
+	{
 		this->_type = rhs.getType();
+	}
 	return *this;
+}
+
+std::ostream &operator<<(std::ostream &o, AMateria const &i)
+{
+	// o << "Value = " << i.getValue();
+	return o;
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void AMateria::use(ICharacter &target)
+{
+	;
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string Animal::getType() const
+const std::string &AMateria::getType() const
 {
 	return _type;
-}
-
-void Animal::setType(std::string type)
-{
-	_type = type;
 }
 
 /* ************************************************************************** */

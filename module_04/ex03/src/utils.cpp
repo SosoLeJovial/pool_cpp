@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 17:20:24 by tsofien-          #+#    #+#             */
-/*   Updated: 2024/12/19 21:12:39 by tsofien-         ###   ########.fr       */
+/*   Created: 2024/12/14 23:37:55 by tsofien-          #+#    #+#             */
+/*   Updated: 2025/01/02 15:57:05 by tsofien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "utils.hpp"
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
+void setColor(std::string color)
 {
+	std::cout << color;
+}
 
-public:
-	Dog();
-	Dog(Dog const &src);
-	virtual ~Dog();
-
-	Dog &operator=(Dog const &rhs);
-
-	virtual void makeSound() const;
-
-private:
-	Brain *_brain;
-};
-
-#endif /* ************************************************************* DOG_H */
+void resetColor()
+{
+	std::cout << RESET;
+}
