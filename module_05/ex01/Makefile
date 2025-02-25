@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2025/02/25 14:39:46 by tsofien-         ###   ########.fr        #
+#    Updated: 2025/02/25 15:01:55 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= Mommy,_when_I_growup,_I_want_to_be_a_bureaucrat!
+NAME	= Form_up_maggots!
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
@@ -25,7 +25,7 @@ DFLAGS	= -MMD -MF $(@:.o=.d)
 ################################################################################
 
 FILE_EXTENSION	= .cpp
-SRCS			= utils.cpp Bureaucrat.cpp
+SRCS			= utils.cpp Bureaucrat.cpp Form.cpp
 OBJS_DIR		= .objs/
 SRCS_PATH		= src
 INCLUDE_PATH	= includes/

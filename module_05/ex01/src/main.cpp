@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
@@ -29,5 +30,8 @@ int main()
 	std::cout << std::endl;
 	Bureaucrat teddy("Teddy", 150);
 	std::cout << teddy << std::endl;
+	Form myform("b-48h2", 1, 1);
+	TEST_EXCEPTION(myform.beSigned(teddy), "Exception too low to sign", Form::GradeTooLowException);
+
 	return 0;
 }

@@ -1,50 +1,54 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
 #include "utils.hpp"
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
 private:
 	const std::string _name;
-	unsigned int _grade;
+	const unsigned int _gradeToSign;
+	const unsigned int _gradeToExec;
+	bool _signed;
 
 public:
-	Bureaucrat();
-	Bureaucrat(const std::string &name, unsigned int grade);
-	Bureaucrat(Bureaucrat const &src);
+	Form();
+	Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec);
+	Form(Form const &src);
+	~Form();
 
-	~Bureaucrat();
+	Form &operator=(Form const &rhs);
 
-	Bureaucrat &operator=(Bureaucrat const &rhs);
+	void beSigned(const Bureaucrat &random);
 
-	// Getters & Setters
-	const std::string &getName() const;
-	unsigned int getGrade() const;
-	void setGrade(unsigned int grade);
-
-	// Methods
-	void incrementGrade();
-	void decrementGrade();
-
-	// exceptions
+	// Exceptions
 	class GradeTooHighException : public std::exception
 	{
+	private:
+		std::string _msg;
+
 	public:
+		GradeTooHighException(const std::string msg);
 		virtual const char *what() const throw();
+		virtual ~GradeTooHighException() throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
+	private:
+		std::string _msg;
+
 	public:
+		GradeTooLowException() {}
+		GradeTooLowException(const std::string msg);
 		virtual const char *what() const throw();
+		virtual ~GradeTooLowException() throw();
 	};
 };
-
-std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
 
 #define TEST_EXCEPTION(code, description, expected_exception)                                    \
 	try                                                                                          \
