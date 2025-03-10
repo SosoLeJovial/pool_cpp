@@ -1,76 +1,70 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
 #include "utils.hpp"
+#include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-// *******************************
-//           CLASS
-// *******************************
-
-class Bureaucrat
+class AForm
 {
 private:
 	const std::string _name;
-	unsigned int _grade;
+	const unsigned int _gradeToSign;
+	const unsigned int _gradeToExec;
+	bool _signed;
 
 public:
-	// *******************************
-	//         CONSTRUCTORS
-	// *******************************
-	Bureaucrat();
-	Bureaucrat(const std::string &name, unsigned int grade);
-	Bureaucrat(Bureaucrat const &src);
-	~Bureaucrat();
+	// Constructors & Destructor
+	AForm();
+	AForm(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec);
+	AForm(AForm const &src);
+	~AForm();
 
-	// *******************************
-	//      ASSIGNMENT OPERATOR
-	// *******************************
-	Bureaucrat &operator=(Bureaucrat const &rhs);
+	// Operator Overload
+	AForm &operator=(AForm const &rhs);
 
-	// *******************************
-	//        GETTERS & SETTERS
-	// *******************************
-	const std::string &getName() const;
-	unsigned int getGrade() const;
-	void setGrade(unsigned int grade);
+	// Member Functions
+	virtual void beSigned(const Bureaucrat &random) = 0;
+	virtual std::string getTypeForm() const = 0;
+	virtual void execute(const Bureaucrat &executor) = 0;
 
-	// *******************************
-	//          METHODS
-	// *******************************
-	void incrementGrade();
-	void decrementGrade();
-	void signForm(Form &toSign);
+	// Getters
+	std::string getName() const;
+	bool getSigned() const;
+	unsigned int getGradeToSign() const;
+	unsigned int getGradeToExec() const;
 
-	// *******************************
-	//        EXCEPTION CLASSES
-	// *******************************
+	// Exceptions
 	class GradeTooHighException : public std::exception
 	{
+	private:
+		std::string _msg;
+
 	public:
+		explicit GradeTooHighException(const std::string msg);
 		virtual const char *what() const throw();
+		virtual ~GradeTooHighException() throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
+	private:
+		std::string _msg;
+
 	public:
+		GradeTooLowException() {}
+		explicit GradeTooLowException(const std::string msg);
 		virtual const char *what() const throw();
+		virtual ~GradeTooLowException() throw();
 	};
 };
 
-// *******************************
-//     OVERLOADED OPERATORS
-// *******************************
-std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
-
-// *******************************
-//         TEST MACRO
-// *******************************
-#define TEST_EXCEPTION(code, description, expected_exception)                                    \
+// Macro for Exception Testing
+#define TEST_EXCEPTIONS(code, description, expected_exception)                                   \
 	try                                                                                          \
 	{                                                                                            \
 		setColor(CYAN);                                                                          \
@@ -101,4 +95,4 @@ std::ostream &operator<<(std::ostream &o, Bureaucrat const &rhs);
 		resetColor();                                                                            \
 	}
 
-#endif
+#endif // AForm_HPP

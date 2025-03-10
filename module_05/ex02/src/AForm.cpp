@@ -1,42 +1,42 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // *******************************
 //         CONSTRUCTORS
 // *******************************
 
-Form::Form()
+AForm::AForm()
 	: _name("default"), _gradeToSign(150), _gradeToExec(150), _signed(false)
 {
 	setColor(GREEN);
-	std::cout << "Form default constructor called" << std::endl;
+	std::cout << "AForm default constructor called" << std::endl;
 	resetColor();
 }
 
-Form::Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec)
+AForm::AForm(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec)
 	: _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _signed(false)
 {
 	setColor(GREEN);
-	std::cout << "Form parameterized constructor called" << std::endl;
+	std::cout << "AForm parameterized constructor called" << std::endl;
 	if (gradeToSign > 150 || gradeToExec > 150)
-		throw Form::GradeTooLowException("Grade is too low");
+		throw AForm::GradeTooLowException("Grade is too low");
 	else if (gradeToSign < 0 || gradeToExec < 0)
-		throw Form::GradeTooHighException("Grade is too High");
+		throw AForm::GradeTooHighException("Grade is too High");
 	resetColor();
 }
 
-Form::Form(const Form &src)
+AForm::AForm(const AForm &src)
 	: _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExec(src._gradeToExec), _signed(src._signed)
 {
 	setColor(GREEN);
-	std::cout << "Form copy constructor called!" << std::endl;
+	std::cout << "AForm copy constructor called!" << std::endl;
 	resetColor();
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	setColor(BLUE);
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << "AForm destructor called" << std::endl;
 	resetColor();
 }
 
@@ -44,7 +44,7 @@ Form::~Form()
 //       ASSIGNMENT OPERATOR
 // *******************************
 
-Form &Form::operator=(Form const &rhs)
+AForm &AForm::operator=(AForm const &rhs)
 {
 	if (this != &rhs)
 		_signed = rhs._signed;
@@ -55,12 +55,12 @@ Form &Form::operator=(Form const &rhs)
 //         GETTERS
 // *******************************
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return _name;
 }
 
-bool Form::getSigned() const
+bool AForm::getSigned() const
 {
 	return _signed;
 }
@@ -69,10 +69,10 @@ bool Form::getSigned() const
 //         MEMBER METHODS
 // *******************************
 
-void Form::beSigned(const Bureaucrat &random)
+void AForm::beSigned(const Bureaucrat &random)
 {
 	if (random.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException(random.getName() + " couldn't sign " + _name);
+		throw AForm::GradeTooLowException(random.getName() + " couldn't sign " + _name);
 
 	setColor(ORANGE);
 	std::cout << random.getName() << " signed " << _name << "." << std::endl;
@@ -84,20 +84,20 @@ void Form::beSigned(const Bureaucrat &random)
 //        EXCEPTION CLASSES
 // *******************************
 
-Form::GradeTooLowException::GradeTooLowException(const std::string msg) : _msg(msg) {}
-Form::GradeTooHighException::GradeTooHighException(const std::string msg) : _msg(msg) {}
+AForm::GradeTooLowException::GradeTooLowException(const std::string msg) : _msg(msg) {}
+AForm::GradeTooHighException::GradeTooHighException(const std::string msg) : _msg(msg) {}
 
-Form::GradeTooLowException::~GradeTooLowException() throw() {}
-Form::GradeTooHighException::~GradeTooHighException() throw() {}
+AForm::GradeTooLowException::~GradeTooLowException() throw() {}
+AForm::GradeTooHighException::~GradeTooHighException() throw() {}
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	if (_msg.empty())
 		return "Grade is too high";
 	return _msg.c_str();
 }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	if (_msg.empty())
 		return "Grade is too low";

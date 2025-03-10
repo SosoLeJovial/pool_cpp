@@ -111,9 +111,17 @@ void Bureaucrat::decrementGrade()
 		_grade++;
 }
 
-void Bureaucrat::signForm(Form &toSign)
+void Bureaucrat::signForm(AForm &toSign)
 {
 	toSign.beSigned(*this);
+}
+
+void Bureaucrat::executeForm(AForm &form)
+{
+	form.execute(*this);
+	setColor(MAGENTA);
+	std::cout << _name << " execute " << form.getTypeForm() << "." << std::endl;
+	resetColor();
 }
 
 // *******************************

@@ -7,6 +7,8 @@
 #include "utils.hpp"
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -16,14 +18,21 @@ private:
 	bool _signed;
 
 public:
+	// Constructors & Destructor
 	Form();
 	Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec);
 	Form(Form const &src);
 	~Form();
 
+	// Operator Overload
 	Form &operator=(Form const &rhs);
 
+	// Member Functions
 	void beSigned(const Bureaucrat &random);
+
+	// Getters
+	std::string getName() const;
+	bool getSigned() const;
 
 	// Exceptions
 	class GradeTooHighException : public std::exception
@@ -32,7 +41,7 @@ public:
 		std::string _msg;
 
 	public:
-		GradeTooHighException(const std::string msg);
+		explicit GradeTooHighException(const std::string msg);
 		virtual const char *what() const throw();
 		virtual ~GradeTooHighException() throw();
 	};
@@ -44,12 +53,13 @@ public:
 
 	public:
 		GradeTooLowException() {}
-		GradeTooLowException(const std::string msg);
+		explicit GradeTooLowException(const std::string msg);
 		virtual const char *what() const throw();
 		virtual ~GradeTooLowException() throw();
 	};
 };
 
+// Macro for Exception Testing
 #define TEST_EXCEPTION(code, description, expected_exception)                                    \
 	try                                                                                          \
 	{                                                                                            \
@@ -81,4 +91,4 @@ public:
 		resetColor();                                                                            \
 	}
 
-#endif
+#endif // FORM_HPP

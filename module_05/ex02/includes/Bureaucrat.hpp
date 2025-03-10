@@ -4,13 +4,14 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "AForm.hpp"
 #include "utils.hpp"
-
-class Form;
 
 // *******************************
 //           CLASS
 // *******************************
+
+class AForm;
 
 class Bureaucrat
 {
@@ -44,7 +45,8 @@ public:
 	// *******************************
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(Form &toSign);
+	void signForm(AForm &toSign);
+	void executeForm(AForm &form);
 
 	// *******************************
 	//        EXCEPTION CLASSES

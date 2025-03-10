@@ -33,5 +33,10 @@ int main()
 	Form myform("b-48h2", 1, 1);
 	TEST_EXCEPTION(myform.beSigned(teddy), "Exception too low to sign", Form::GradeTooLowException);
 
+	std::cout << std::endl;
+	Bureaucrat randy("randy", 2);
+	Form c("39-40", 1, 1);
+	TEST_EXCEPTION(randy.signForm(c);, "Test Method SignForm Bureaucrat", Form::GradeTooLowException);
+
 	return 0;
 }

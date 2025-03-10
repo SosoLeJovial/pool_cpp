@@ -13,8 +13,6 @@
 
 #include <iostream>
 #include <string>
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 void setColor(std::string color);
 void resetColor();
