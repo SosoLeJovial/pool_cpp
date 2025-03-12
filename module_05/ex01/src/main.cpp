@@ -6,7 +6,11 @@ int main()
 	// Test the Bureaucrat class
 	std::cout << "Testing the Bureaucrat Grade: " << std::endl;
 	std::cout << std::endl;
-	TEST_EXCEPTION(Bureaucrat b("John", 151), "Creating a bureaucrat with a grade of 151", Bureaucrat::GradeTooLowException);
+	TEST_EXCEPTION(
+		Bureaucrat b("John", 1);
+		,
+		"Creating a bureaucrat with a grade of 151",
+		Bureaucrat::GradeTooLowException);
 
 	std::cout << std::endl;
 	TEST_EXCEPTION(Bureaucrat b("John", 0), "Creating a bureaucrat with a grade of 0", Bureaucrat::GradeTooHighException);

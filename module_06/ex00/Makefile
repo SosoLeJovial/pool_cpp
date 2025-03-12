@@ -6,7 +6,7 @@
 #    By: tsofien- <tsofien-@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/06 00:15:05 by tsofien-          #+#    #+#              #
-#    Updated: 2025/03/12 16:47:15 by tsofien-         ###   ########.fr        #
+#    Updated: 2025/03/12 17:13:28 by tsofien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= Mommy,_when_I_growup,_I_want_to_be_a_bureaucrat!
+NAME	= SCALAR_INTERSTELLAR_POUDLARD
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
@@ -29,6 +29,7 @@ SRCS			= utils.cpp
 OBJS_DIR		= .objs/
 SRCS_PATH		= src
 INCLUDE_PATH	= includes/
+
 
 MAIN			= main.cpp
 
