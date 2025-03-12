@@ -49,14 +49,21 @@ unsigned int PresidentialPardonForm::getGradetoExec() const
 
 void PresidentialPardonForm::beSigned(const Bureaucrat &random)
 {
-	(void)random;
-	std::cout << "NSM" << std::endl;
+	if (random.getGrade() > _gradeToSign)
+		throw AForm::GradeTooLowException(random.getName() + "'s grade is too low to sign!");
+	_signed = true;
+	setColor(GREEN);
+	std::cout << random.getName() << " signed " << this->getName() << std::endl;
+	resetColor();
 }
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor)
 {
-	(void)executor;
-	std::cout << "toz" << std::endl;
+	if (executor.getGrade() > _gradeToExec || !getSigned())
+		throw AForm:: GradeTooLowException(executor.getName() + "'s grade is too low to sign!");
+	setColor(GREEN);
+	std::cout << _target << " has been pardoned by Zaphod beelblerox." << std::endl;
+	resetColor();
 }
 
 std::string PresidentialPardonForm::getTypeForm() const

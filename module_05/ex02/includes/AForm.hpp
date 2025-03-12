@@ -31,12 +31,12 @@ public:
 	virtual void beSigned(const Bureaucrat &random) = 0;
 	virtual std::string getTypeForm() const = 0;
 	virtual void execute(const Bureaucrat &executor) = 0;
-
+	
 	// Getters
 	std::string getName() const;
-	bool getSigned() const;
 	unsigned int getGradeToSign() const;
 	unsigned int getGradeToExec() const;
+
 
 	// Exceptions
 	class GradeTooHighException : public std::exception

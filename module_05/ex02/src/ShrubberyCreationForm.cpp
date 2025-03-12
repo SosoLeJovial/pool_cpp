@@ -30,14 +30,14 @@ std::string ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::beSigned(const Bureaucrat &random)
 {
-	if (random.getGrade() > this->_gradeToSign)
+	if (random.getGrade() < this->_gradeToSign)
 		throw AForm::GradeTooLowException(random.getName() + " couldn't sign " + _target);
 	_signed = true;
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat &random)
 {
-	if (random.getGrade() > this->_gradeToExec)
+	if (random.getGrade() < this->_gradeToExec && !_signed)
 		throw AForm::GradeTooLowException(random.getName() + " couldn't exec " + _target);
 	std::string filename = _target + "_shrubbery";
 	std::ofstream outfile(filename.c_str());

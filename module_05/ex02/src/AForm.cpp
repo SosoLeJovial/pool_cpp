@@ -60,9 +60,14 @@ std::string AForm::getName() const
 	return _name;
 }
 
-bool AForm::getSigned() const
+unsigned int AForm::getGradeToSign() const
 {
-	return _signed;
+	return _gradeToSign;
+}
+
+unsigned int AForm::getGradeToExec() const
+{
+	return _gradeToExec;
 }
 
 // *******************************

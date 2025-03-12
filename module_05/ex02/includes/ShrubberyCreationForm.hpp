@@ -1,6 +1,14 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
-#define SAPIN "lel"
+#define SAPIN \
+"       /\\       \n" \
+"      /  \\      \n" \
+"     /    \\     \n" \
+"    /      \\    \n" \
+"   /        \\   \n" \
+"  /__________\\  \n" \
+"       ||       \n" \
+"       ||       \n"
 
 #include "AForm.hpp"
 #include <fstream>

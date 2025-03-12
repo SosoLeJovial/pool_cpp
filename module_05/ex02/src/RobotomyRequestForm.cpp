@@ -48,20 +48,25 @@ unsigned int RobotomyRequestForm::getGradeToSign() const
 // methods
 void RobotomyRequestForm::beSigned(const Bureaucrat &random)
 {
+	if (random.getGrade() > this->_gradeToSign)
+		throw AForm::GradeTooLowException(_target + " could'nt sign!");
+	_signed = true;
+	setColor(GREEN);
+	std::cout << random.getName() << " sign form for " << _target << std::endl;
+	resetColor();
+}
+	
+void RobotomyRequestForm::execute(const Bureaucrat &random)
+{
 	setColor(ORANGE);
 	std::cout << "*Makes some drilling noises*" << std::endl;
 	resetColor();
-	if (random.getGrade() > this->_gradeToSign)
-		throw AForm::GradeTooLowException("Robotomy on " + _target + "failed.");
-	if (random.getGrade() > this->_gradeToExec)
-		throw AForm::GradeTooLowException("Robotomy on " + _target + "failed.");
-	std::cout << _target << "has been robotomized successfully 50% of the time." << std::endl;
-}
-
-void RobotomyRequestForm::execute(const Bureaucrat &random)
-{
-	(void)random;
-	std::cout << "prout" << std::endl;
+	srand(time(0));
+	if (random.getGrade() > this->_gradeToExec || (rand() % 2 == 0) || !getSigned())
+		throw AForm::GradeTooLowException("Robotomy on " + _target + " failed.");
+	setColor(GREEN);
+	std::cout << _target << "has been robotomized successfully." << std::endl;
+	resetColor();
 }
 
 std::string RobotomyRequestForm::getTypeForm() const

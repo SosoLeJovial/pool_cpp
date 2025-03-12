@@ -17,12 +17,12 @@ class Bureaucrat
 private:
 	const std::string _name;
 	unsigned int _grade;
+	Bureaucrat();
 
 public:
 	// *******************************
 	//         CONSTRUCTORS
 	// *******************************
-	Bureaucrat();
 	Bureaucrat(const std::string &name, unsigned int grade);
 	Bureaucrat(Bureaucrat const &src);
 	~Bureaucrat();
