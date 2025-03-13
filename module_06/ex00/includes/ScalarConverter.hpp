@@ -3,6 +3,8 @@
 
 #include <string.h>
 #include <iostream>
+#include <algorithm>
+#include "utils.hpp"
 
 class ScalarConverter
 {
@@ -15,7 +17,7 @@ public:
 
 	virtual void virtualMethod() = 0;
 
-	static void convert(std::string);
+	static void convert(std::string value);
 };
 
 #endif
