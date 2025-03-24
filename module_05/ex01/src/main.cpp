@@ -3,44 +3,21 @@
 
 int main()
 {
-	// Test the Bureaucrat class
-	std::cout << "Testing the Bureaucrat Grade: " << std::endl;
-	std::cout << std::endl;
 	TEST_EXCEPTION(
-		Bureaucrat b("John", 1);
-		,
-		"Creating a bureaucrat with a grade of 151",
-		Bureaucrat::GradeTooLowException);
-
-	std::cout << std::endl;
-	TEST_EXCEPTION(Bureaucrat b("John", 0), "Creating a bureaucrat with a grade of 0", Bureaucrat::GradeTooHighException);
+		Bureaucrat teddy("Teddy", 150);
+		std::cout << teddy << std::endl;
+		Form myform("b-48h2", 1, 1);
+		myform.beSigned(teddy),
+		"Exception too low to sign",
+		Form::GradeTooLowException);
 
 	std::cout << std::endl;
 	TEST_EXCEPTION(
-		Bureaucrat b("John", 1);
-		b.incrementGrade();
-		,
-		"Creating a bureaucrat with a grade of 1 and decrementing it",
-		Bureaucrat::GradeTooHighException);
-
-	std::cout << std::endl;
-	TEST_EXCEPTION(
-		Bureaucrat b("John", 150);
-		b.decrementGrade();
-		,
-		"Creating a bureaucrat with a grade of 150 and incrementing it",
-		Bureaucrat::GradeTooLowException);
-
-	std::cout << std::endl;
-	Bureaucrat teddy("Teddy", 150);
-	std::cout << teddy << std::endl;
-	Form myform("b-48h2", 1, 1);
-	TEST_EXCEPTION(myform.beSigned(teddy), "Exception too low to sign", Form::GradeTooLowException);
-
-	std::cout << std::endl;
-	Bureaucrat randy("randy", 2);
-	Form c("39-40", 1, 1);
-	TEST_EXCEPTION(randy.signForm(c);, "Test Method SignForm Bureaucrat", Form::GradeTooLowException);
+		Bureaucrat randy("randy", 15);
+		Form c("39-40", 15, 15);
+		randy.signForm(c),
+		"Test Method SignForm Bureaucrat",
+		Form::GradeTooLowException);
 
 	return 0;
 }

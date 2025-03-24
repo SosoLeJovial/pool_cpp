@@ -24,11 +24,11 @@ public:
 	bool getSigned() const;
 	unsigned int getGradetoSign() const;
 	unsigned int getGradetoExec() const;
-	std::string getTypeForm() const;                         
+	std::string getTypeForm() const;
 
 	// methods
 	void beSigned(const Bureaucrat &random);
-	void execute(const Bureaucrat &executor);
+	void execute(const Bureaucrat &executor) const;
 };
 
 #endif

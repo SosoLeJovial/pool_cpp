@@ -35,12 +35,14 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat &random)
 	_signed = true;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &random)
+void ShrubberyCreationForm::execute(const Bureaucrat &random) const
 {
 	if (random.getGrade() < this->_gradeToExec && !_signed)
 		throw AForm::GradeTooLowException(random.getName() + " couldn't exec " + _target);
 	std::string filename = _target + "_shrubbery";
 	std::ofstream outfile(filename.c_str());
+	if (!outfile.is_open())
+		throw std::ofstream::failure("Failed to open file: " + filename);
 	outfile << SAPIN << std::endl;
 	outfile.close();
 }

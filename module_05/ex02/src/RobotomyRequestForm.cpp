@@ -55,8 +55,8 @@ void RobotomyRequestForm::beSigned(const Bureaucrat &random)
 	std::cout << random.getName() << " sign form for " << _target << std::endl;
 	resetColor();
 }
-	
-void RobotomyRequestForm::execute(const Bureaucrat &random)
+
+void RobotomyRequestForm::execute(const Bureaucrat &random) const
 {
 	setColor(ORANGE);
 	std::cout << "*Makes some drilling noises*" << std::endl;

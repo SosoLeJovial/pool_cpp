@@ -72,8 +72,7 @@ bool Form::getSigned() const
 void Form::beSigned(const Bureaucrat &random)
 {
 	if (random.getGrade() > this->_gradeToSign)
-		throw Form::GradeTooLowException(random.getName() + " couldn't sign " + _name);
-
+		throw Form::GradeTooLowException(random.getName() + " couldn't sign " + _name + "because his grade is too low.");
 	setColor(ORANGE);
 	std::cout << random.getName() << " signed " << _name << "." << std::endl;
 	resetColor();

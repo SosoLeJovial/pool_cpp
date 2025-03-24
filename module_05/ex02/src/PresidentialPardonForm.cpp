@@ -57,7 +57,7 @@ void PresidentialPardonForm::beSigned(const Bureaucrat &random)
 	resetColor();
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor)
+void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
 	if (executor.getGrade() > _gradeToExec || !getSigned())
 		throw AForm:: GradeTooLowException(executor.getName() + "'s grade is too low to sign!");

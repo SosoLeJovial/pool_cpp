@@ -27,7 +27,7 @@ public:
 
 	// methods
 	void beSigned(const Bureaucrat &random);
-	void execute(const Bureaucrat &executor);
+	void execute(const Bureaucrat &executor) const;
 	std::string getTypeForm() const;
 };
 

@@ -13,10 +13,12 @@ int main()
 	PresidentialPardonForm *quaranteNeufTroisBis = new PresidentialPardonForm("Groland");
 	RobotomyRequestForm *qntbb = new RobotomyRequestForm("L'hexagone");
 
+	setColor(RED);
 	std::cout << "..............................................." << std::endl;
 
 	std::cout << "Tests for Shubbery: " << std::endl
 			  << std::endl;
+	resetColor();
 	TEST_EXCEPTIONS(
 		Michel->executeForm(*quaranteNeufTrois);
 		,
@@ -28,17 +30,19 @@ int main()
 		"Test executeForm Bureaucrat too low",
 		AForm::GradeTooHighException);
 
+	setColor(RED);
 	std::cout << "..............................................." << std::endl;
 
 	std::cout << "Tests for PresidentialPardonForm: " << std::endl
 			  << std::endl;
+	resetColor();
 
 	TEST_EXCEPTIONS(
 		Michel->executeForm(*quaranteNeufTroisBis);
 		,
 		"Test executeForm Bureaucrat but form is not signed",
 		AForm::GradeTooLowException);
-	
+
 	TEST_EXCEPTIONS(
 		quaranteNeufTroisBis->beSigned(*Michel);
 		Michel->executeForm(*quaranteNeufTroisBis);
@@ -46,10 +50,12 @@ int main()
 		"Test execute Bureaucrat too low",
 		AForm::GradeTooLowException);
 
+	setColor(RED);
 	std::cout << "..............................................." << std::endl;
 
 	std::cout << "Tests for RobotomyRequestForm: " << std::endl
 			  << std::endl;
+	resetColor();
 
 	TEST_EXCEPTIONS(
 		qntbb->beSigned(*Michel);
@@ -62,7 +68,7 @@ int main()
 		,
 		"Test executeForm Bureaucrat too low",
 		AForm::GradeTooHighException);
-		std::cout << "..............................................." << std::endl;
+	std::cout << "..............................................." << std::endl;
 
 	delete Michel;
 	delete PoPaul;

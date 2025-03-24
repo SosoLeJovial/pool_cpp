@@ -16,10 +16,10 @@ private:
 	const unsigned int _gradeToSign;
 	const unsigned int _gradeToExec;
 	bool _signed;
+	Form();
 
 public:
 	// Constructors & Destructor
-	Form();
 	Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExec);
 	Form(Form const &src);
 	~Form();
