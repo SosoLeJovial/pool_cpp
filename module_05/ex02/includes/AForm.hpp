@@ -38,6 +38,7 @@ public:
 	unsigned int getGradeToExec() const;
 
 	// Exceptions
+
 	class GradeTooHighException : public std::exception
 	{
 	private:
@@ -55,10 +56,20 @@ public:
 		std::string _msg;
 
 	public:
-		GradeTooLowException() {}
 		explicit GradeTooLowException(const std::string msg);
 		virtual const char *what() const throw();
 		virtual ~GradeTooLowException() throw();
+	};
+
+	class NotSignedException : public std::exception
+	{
+	private:
+		std::string _msg;
+
+	public:
+		explicit NotSignedException(const std::string msg);
+		virtual const char *what() const throw();
+		virtual ~NotSignedException() throw();
 	};
 };
 

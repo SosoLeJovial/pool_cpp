@@ -59,8 +59,10 @@ void PresidentialPardonForm::beSigned(const Bureaucrat &random)
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
-	if (executor.getGrade() > _gradeToExec || !getSigned())
-		throw AForm:: GradeTooLowException(executor.getName() + "'s grade is too low to sign!");
+	if (!getSigned())
+		throw NotSignedException(_target + " is not signed!");
+	if (executor.getGrade() > _gradeToExec)
+		throw AForm::GradeTooLowException(executor.getName() + "'s grade is too low to sign!");
 	setColor(GREEN);
 	std::cout << _target << " has been pardoned by Zaphod beelblerox." << std::endl;
 	resetColor();

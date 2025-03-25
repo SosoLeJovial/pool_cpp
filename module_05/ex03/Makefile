@@ -14,7 +14,7 @@
 #                                     CONFIG                                   #
 ################################################################################
 
-NAME	= No_you_need_form_28B_not_28C!
+NAME	= AT_LEAST_THIS_BEATS_COFFEE_MAKING
 
 CC 		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3

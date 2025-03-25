@@ -89,10 +89,13 @@ void AForm::beSigned(const Bureaucrat &random)
 // *******************************
 
 AForm::GradeTooLowException::GradeTooLowException(const std::string msg) : _msg(msg) {}
-AForm::GradeTooHighException::GradeTooHighException(const std::string msg) : _msg(msg) {}
-
 AForm::GradeTooLowException::~GradeTooLowException() throw() {}
+
+AForm::GradeTooHighException::GradeTooHighException(const std::string msg) : _msg(msg) {}
 AForm::GradeTooHighException::~GradeTooHighException() throw() {}
+
+AForm::NotSignedException::NotSignedException(const std::string msg) : _msg(msg) {}
+AForm::NotSignedException::~NotSignedException() throw() {}
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
@@ -102,6 +105,13 @@ const char *AForm::GradeTooHighException::what() const throw()
 }
 
 const char *AForm::GradeTooLowException::what() const throw()
+{
+	if (_msg.empty())
+		return "Grade is too low";
+	return _msg.c_str();
+}
+
+const char *AForm::NotSignedException::what() const throw()
 {
 	if (_msg.empty())
 		return "Grade is too low";

@@ -28,6 +28,11 @@ std::string ShrubberyCreationForm::getTarget() const
 	return _target;
 }
 
+bool ShrubberyCreationForm::getSigned() const
+{
+	return _signed;
+}
+
 void ShrubberyCreationForm::beSigned(const Bureaucrat &random)
 {
 	if (random.getGrade() < this->_gradeToSign)
@@ -37,7 +42,9 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat &random)
 
 void ShrubberyCreationForm::execute(const Bureaucrat &random) const
 {
-	if (random.getGrade() < this->_gradeToExec && !_signed)
+	if (!getSigned())
+		throw NotSignedException(_target + " is not signed!");
+	if (random.getGrade() < this->_gradeToExec)
 		throw AForm::GradeTooLowException(random.getName() + " couldn't exec " + _target);
 	std::string filename = _target + "_shrubbery";
 	std::ofstream outfile(filename.c_str());

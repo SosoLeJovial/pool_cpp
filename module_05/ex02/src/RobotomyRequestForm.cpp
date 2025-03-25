@@ -58,11 +58,13 @@ void RobotomyRequestForm::beSigned(const Bureaucrat &random)
 
 void RobotomyRequestForm::execute(const Bureaucrat &random) const
 {
+	if (!getSigned())
+		throw NotSignedException(_target + " is not signed!");
 	setColor(ORANGE);
 	std::cout << "*Makes some drilling noises*" << std::endl;
 	resetColor();
 	srand(time(0));
-	if (random.getGrade() > this->_gradeToExec || (rand() % 2 == 0) || !getSigned())
+	if (random.getGrade() > this->_gradeToExec || (rand() % 2 == 0))
 		throw AForm::GradeTooLowException("Robotomy on " + _target + " failed.");
 	setColor(GREEN);
 	std::cout << _target << "has been robotomized successfully." << std::endl;

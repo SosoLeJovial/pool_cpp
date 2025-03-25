@@ -39,6 +39,7 @@ public:
 
 	// getters  & setters
 	std::string getTarget() const;
+	bool getSigned() const;
 
 	void beSigned(const Bureaucrat &random);
 	void execute(const Bureaucrat &executor) const;
