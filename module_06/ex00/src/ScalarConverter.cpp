@@ -30,7 +30,7 @@ void ScalarConverter::convert(std::string value)
 				a = b;
 			else
 				std::cout << "non displayable" << std::endl;
-		}
+				}
 	}
 	catch (const std::exception &e)
 	{
